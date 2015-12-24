@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/failed.png</file>
+        <file>Resources/waiting.png</file>
+        <file>Resources/success.png</file>
+    </qresource>
+</RCC>

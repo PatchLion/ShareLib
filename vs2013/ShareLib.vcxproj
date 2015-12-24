@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{73DDD2E1-C0E7-36D7-AE1E-D5E9784429D5}</ProjectGuid>
+    <RootNamespace>ShareLib</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolSet>v120_xp</PlatformToolSet>
+    <OutputDirectory>..\lib\$(Platform)\$(Configuration)\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>ShareLib</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolSet>v120_xp</PlatformToolSet>
+    <OutputDirectory>..\lib\$(Platform)\$(Configuration)\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>ShareLib</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolSet>v120_xp</PlatformToolSet>
+    <OutputDirectory>..\lib\$(Platform)\$(Configuration)\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>ShareLib</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolSet>v120_xp</PlatformToolSet>
+    <OutputDirectory>..\lib\$(Platform)\$(Configuration)\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>ShareLib</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ShareLib</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ShareLib</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ShareLib</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ShareLib</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>debug</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>release</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>"..\Include";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtGui";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtANGLE";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtCore";"..\temp\GeneratedFiles";C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\mkspecs\win32-msvc2013;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>release\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ResourceOutputFileName>$(OutDir)\$(InputName).res</ResourceOutputFileName>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>"..\Include";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtGui";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtANGLE";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtCore";"..\temp\GeneratedFiles";C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\mkspecs\win32-msvc2013;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>release\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ResourceOutputFileName>$(OutDir)\$(InputName).res</ResourceOutputFileName>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>"..\Include";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtGui";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtANGLE";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtCore";"..\temp\GeneratedFiles";C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\mkspecs\win32-msvc2013;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>debug\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ResourceOutputFileName>$(OutDir)\$(InputName).res</ResourceOutputFileName>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>"..\Include";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtGui";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtANGLE";"C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\include\QtCore";"..\temp\GeneratedFiles";C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\mkspecs\win32-msvc2013;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>debug\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_GUI_LIB;QT_CORE_LIB;QT_OPENGL_ES_2;QT_OPENGL_ES_2_ANGLE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ResourceOutputFileName>$(OutDir)\$(InputName).res</ResourceOutputFileName>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\AuthorizeWebviewBase.cpp" />
+    <ClCompile Include="..\src\FaceBookAuthorizeWebview.cpp" />
+    <ClCompile Include="..\src\FacebookShare.cpp" />
+    <ClCompile Include="..\src\FacebookShareObject.cpp" />
+    <ClCompile Include="..\src\FlickrAuthorizeWebview.cpp" />
+    <ClCompile Include="..\src\FlickrShare.cpp" />
+    <ClCompile Include="..\src\FlickrShareObject.cpp" />
+    <ClCompile Include="..\src\IWebviewStyle.cpp" />
+    <ClCompile Include="..\src\NetworkReplyTempObjManager.cpp" />
+    <ClCompile Include="..\src\ShareFrameBase.cpp" />
+    <ClCompile Include="..\src\SharePublicFuncDefine.cpp" />
+    <ClCompile Include="..\src\ShareStructDefine.cpp" />
+    <ClCompile Include="..\src\TwitterAuthorizeWebview.cpp" />
+    <ClCompile Include="..\src\TwitterShare.cpp" />
+    <ClCompile Include="..\src\TwitterShareObject.cpp" />
+    <ClCompile Include="..\src\WebviewContainer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\src\AuthorizeWebviewBase.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\src\AuthorizeWebviewBase.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\src\AuthorizeWebviewBase.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\AuthorizeWebviewBase.h -o ..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\AuthorizeWebviewBase.h -o ..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\src\AuthorizeWebviewBase.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\src\AuthorizeWebviewBase.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\src\AuthorizeWebviewBase.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\src\AuthorizeWebviewBase.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\AuthorizeWebviewBase.h -o ..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\AuthorizeWebviewBase.h -o ..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\src\AuthorizeWebviewBase.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\src\AuthorizeWebviewBase.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\src\FaceBookAuthorizeWebview.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\src\FaceBookAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\src\FaceBookAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FaceBookAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_FaceBookAuthorizeWebview.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FaceBookAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_FaceBookAuthorizeWebview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\src\FaceBookAuthorizeWebview.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\src\FaceBookAuthorizeWebview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_FaceBookAuthorizeWebview.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_FaceBookAuthorizeWebview.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\src\FaceBookAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\src\FaceBookAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FaceBookAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_FaceBookAuthorizeWebview.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FaceBookAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_FaceBookAuthorizeWebview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\src\FaceBookAuthorizeWebview.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\src\FaceBookAuthorizeWebview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_FaceBookAuthorizeWebview.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_FaceBookAuthorizeWebview.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\Include\FacebookShare.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Include\FacebookShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\Include\FacebookShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\FacebookShare.h -o ..\temp\GeneratedFiles\moc_FacebookShare.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\FacebookShare.h -o ..\temp\GeneratedFiles\moc_FacebookShare.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\Include\FacebookShare.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\Include\FacebookShare.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_FacebookShare.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_FacebookShare.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Include\FacebookShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\Include\FacebookShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\FacebookShare.h -o ..\temp\GeneratedFiles\moc_FacebookShare.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\FacebookShare.h -o ..\temp\GeneratedFiles\moc_FacebookShare.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\Include\FacebookShare.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\Include\FacebookShare.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_FacebookShare.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_FacebookShare.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\src\FacebookShareObject.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\src\FacebookShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\src\FacebookShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FacebookShareObject.h -o ..\temp\GeneratedFiles\moc_FacebookShareObject.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FacebookShareObject.h -o ..\temp\GeneratedFiles\moc_FacebookShareObject.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\src\FacebookShareObject.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\src\FacebookShareObject.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_FacebookShareObject.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_FacebookShareObject.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\src\FacebookShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\src\FacebookShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FacebookShareObject.h -o ..\temp\GeneratedFiles\moc_FacebookShareObject.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FacebookShareObject.h -o ..\temp\GeneratedFiles\moc_FacebookShareObject.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\src\FacebookShareObject.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\src\FacebookShareObject.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_FacebookShareObject.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_FacebookShareObject.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\src\FlickrAuthorizeWebview.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\src\FlickrAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\src\FlickrAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FlickrAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_FlickrAuthorizeWebview.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FlickrAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_FlickrAuthorizeWebview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\src\FlickrAuthorizeWebview.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\src\FlickrAuthorizeWebview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_FlickrAuthorizeWebview.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_FlickrAuthorizeWebview.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\src\FlickrAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\src\FlickrAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FlickrAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_FlickrAuthorizeWebview.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FlickrAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_FlickrAuthorizeWebview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\src\FlickrAuthorizeWebview.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\src\FlickrAuthorizeWebview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_FlickrAuthorizeWebview.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_FlickrAuthorizeWebview.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\Include\FlickrShare.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Include\FlickrShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\Include\FlickrShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\FlickrShare.h -o ..\temp\GeneratedFiles\moc_FlickrShare.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\FlickrShare.h -o ..\temp\GeneratedFiles\moc_FlickrShare.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\Include\FlickrShare.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\Include\FlickrShare.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_FlickrShare.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_FlickrShare.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Include\FlickrShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\Include\FlickrShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\FlickrShare.h -o ..\temp\GeneratedFiles\moc_FlickrShare.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\FlickrShare.h -o ..\temp\GeneratedFiles\moc_FlickrShare.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\Include\FlickrShare.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\Include\FlickrShare.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_FlickrShare.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_FlickrShare.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\src\FlickrShareObject.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\src\FlickrShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\src\FlickrShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FlickrShareObject.h -o ..\temp\GeneratedFiles\moc_FlickrShareObject.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FlickrShareObject.h -o ..\temp\GeneratedFiles\moc_FlickrShareObject.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\src\FlickrShareObject.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\src\FlickrShareObject.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_FlickrShareObject.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_FlickrShareObject.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\src\FlickrShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\src\FlickrShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FlickrShareObject.h -o ..\temp\GeneratedFiles\moc_FlickrShareObject.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\FlickrShareObject.h -o ..\temp\GeneratedFiles\moc_FlickrShareObject.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\src\FlickrShareObject.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\src\FlickrShareObject.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_FlickrShareObject.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_FlickrShareObject.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\Include\IWebviewContainer.h" />
+    <ClInclude Include="..\Include\IWebviewStyle.h" />
+    <CustomBuild Include="..\Include\NetworkReplyTempObjManager.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Include\NetworkReplyTempObjManager.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\Include\NetworkReplyTempObjManager.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\NetworkReplyTempObjManager.h -o ..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\NetworkReplyTempObjManager.h -o ..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\Include\NetworkReplyTempObjManager.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\Include\NetworkReplyTempObjManager.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Include\NetworkReplyTempObjManager.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\Include\NetworkReplyTempObjManager.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\NetworkReplyTempObjManager.h -o ..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\NetworkReplyTempObjManager.h -o ..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\Include\NetworkReplyTempObjManager.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\Include\NetworkReplyTempObjManager.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\Include\ShareFrameBase.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Include\ShareFrameBase.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\Include\ShareFrameBase.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\ShareFrameBase.h -o ..\temp\GeneratedFiles\moc_ShareFrameBase.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\ShareFrameBase.h -o ..\temp\GeneratedFiles\moc_ShareFrameBase.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\Include\ShareFrameBase.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\Include\ShareFrameBase.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_ShareFrameBase.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_ShareFrameBase.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Include\ShareFrameBase.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\Include\ShareFrameBase.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\ShareFrameBase.h -o ..\temp\GeneratedFiles\moc_ShareFrameBase.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\ShareFrameBase.h -o ..\temp\GeneratedFiles\moc_ShareFrameBase.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\Include\ShareFrameBase.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\Include\ShareFrameBase.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_ShareFrameBase.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_ShareFrameBase.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\Include\ShareMacroDefine.h" />
+    <ClInclude Include="..\Include\SharePublicFuncDefine.h" />
+    <ClInclude Include="..\Include\ShareStructDefine.h" />
+    <CustomBuild Include="..\src\TwitterAuthorizeWebview.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\src\TwitterAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\src\TwitterAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\TwitterAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_TwitterAuthorizeWebview.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\TwitterAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_TwitterAuthorizeWebview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\src\TwitterAuthorizeWebview.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\src\TwitterAuthorizeWebview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_TwitterAuthorizeWebview.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_TwitterAuthorizeWebview.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\src\TwitterAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\src\TwitterAuthorizeWebview.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\TwitterAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_TwitterAuthorizeWebview.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\TwitterAuthorizeWebview.h -o ..\temp\GeneratedFiles\moc_TwitterAuthorizeWebview.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\src\TwitterAuthorizeWebview.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\src\TwitterAuthorizeWebview.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_TwitterAuthorizeWebview.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_TwitterAuthorizeWebview.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\Include\TwitterShare.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Include\TwitterShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\Include\TwitterShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\TwitterShare.h -o ..\temp\GeneratedFiles\moc_TwitterShare.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\TwitterShare.h -o ..\temp\GeneratedFiles\moc_TwitterShare.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\Include\TwitterShare.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\Include\TwitterShare.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_TwitterShare.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_TwitterShare.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Include\TwitterShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\Include\TwitterShare.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\TwitterShare.h -o ..\temp\GeneratedFiles\moc_TwitterShare.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\TwitterShare.h -o ..\temp\GeneratedFiles\moc_TwitterShare.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\Include\TwitterShare.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\Include\TwitterShare.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_TwitterShare.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_TwitterShare.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\src\TwitterShareObject.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\src\TwitterShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\src\TwitterShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\TwitterShareObject.h -o ..\temp\GeneratedFiles\moc_TwitterShareObject.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\TwitterShareObject.h -o ..\temp\GeneratedFiles\moc_TwitterShareObject.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\src\TwitterShareObject.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\src\TwitterShareObject.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_TwitterShareObject.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_TwitterShareObject.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\src\TwitterShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\src\TwitterShareObject.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\TwitterShareObject.h -o ..\temp\GeneratedFiles\moc_TwitterShareObject.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\src\TwitterShareObject.h -o ..\temp\GeneratedFiles\moc_TwitterShareObject.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\src\TwitterShareObject.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\src\TwitterShareObject.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_TwitterShareObject.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_TwitterShareObject.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\Include\WebviewContainer.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Include\WebviewContainer.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\Include\WebviewContainer.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\WebviewContainer.h -o ..\temp\GeneratedFiles\moc_WebviewContainer.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\WebviewContainer.h -o ..\temp\GeneratedFiles\moc_WebviewContainer.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\Include\WebviewContainer.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\Include\WebviewContainer.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_WebviewContainer.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_WebviewContainer.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Include\WebviewContainer.h;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\Include\WebviewContainer.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\WebviewContainer.h -o ..\temp\GeneratedFiles\moc_WebviewContainer.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\WebviewContainer.h -o ..\temp\GeneratedFiles\moc_WebviewContainer.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\Include\WebviewContainer.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\Include\WebviewContainer.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_WebviewContainer.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_WebviewContainer.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\src\call_once.h" />
+    <ClInclude Include="..\src\qsingleton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_FaceBookAuthorizeWebview.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_FacebookShare.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_FacebookShareObject.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_FlickrAuthorizeWebview.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_FlickrShare.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_FlickrShareObject.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_ShareFrameBase.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_TwitterAuthorizeWebview.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_TwitterShare.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_TwitterShareObject.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\moc_WebviewContainer.cpp" />
+    <ClCompile Include="..\temp\GeneratedFiles\qrc_shareimages.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\failed.png" />
+    <CustomBuild Include="..\shareimages.qrc">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\shareimages.qrc;..\Resources\waiting.png;..\Resources\failed.png;..\Resources\success.png;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\shareimages.qrc;..\Resources\waiting.png;..\Resources\failed.png;..\Resources\success.png;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\rcc.exe -name shareimages ..\shareimages.qrc -o ..\temp\GeneratedFiles\qrc_shareimages.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\rcc.exe -name shareimages ..\shareimages.qrc -o ..\temp\GeneratedFiles\qrc_shareimages.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">RCC ..\shareimages.qrc</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">RCC ..\shareimages.qrc</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\qrc_shareimages.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\qrc_shareimages.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\shareimages.qrc;..\Resources\waiting.png;..\Resources\failed.png;..\Resources\success.png;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\shareimages.qrc;..\Resources\waiting.png;..\Resources\failed.png;..\Resources\success.png;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\rcc.exe -name shareimages ..\shareimages.qrc -o ..\temp\GeneratedFiles\qrc_shareimages.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\rcc.exe -name shareimages ..\shareimages.qrc -o ..\temp\GeneratedFiles\qrc_shareimages.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">RCC ..\shareimages.qrc</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">RCC ..\shareimages.qrc</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\qrc_shareimages.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\qrc_shareimages.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <None Include="..\Resources\success.png" />
+    <None Include="..\Resources\waiting.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
