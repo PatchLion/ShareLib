@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>Resources/images/waiting_bg.png</file>
-        <file>Resources/images/waiting_failed.png</file>
-    </qresource>
-</RCC>
