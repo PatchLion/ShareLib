@@ -21,8 +21,6 @@ CAuthorizeWebviewBase::CAuthorizeWebviewBase(QWidget *parent)
 	setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 
 	initWebview();
-
-	setState(ShareLibrary::ShowDefault);
 }
 
 
@@ -76,6 +74,8 @@ void CAuthorizeWebviewBase::setState(ShareLibrary::EAuthorizePageState eState)
 void CAuthorizeWebviewBase::showEvent(QShowEvent* pEvent)
 {
 	QDialog::showEvent(pEvent);
+
+	setState(ShareLibrary::ShowDefault);
 
 	startToAuthorize();
 }
