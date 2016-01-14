@@ -107,8 +107,6 @@ void CTwitterAuthorizeWebview::onReplayFinishedAccessToken()
 	{
 		const QByteArray response = rep->readAll();
 
-		replyTempObjectManager().removeTempReply(rep);
-
 		parseTokens(response);
 
 
@@ -175,8 +173,6 @@ void CTwitterAuthorizeWebview::onReplayFinishedOauthToken()
 	if (rep && rep->error() == QNetworkReply::NoError)
 	{
 		const QByteArray response = rep->readAll();
-
-		replyTempObjectManager().removeTempReply(rep);
 
 		parseTokens(response);
 

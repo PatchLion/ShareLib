@@ -56,7 +56,7 @@ QString ShareLibrary::getStateDescription( ShareLibrary::EAuthorizeState eState 
 
 	default:
 		{
-			return QObject::tr("unknown state");
+			return QObject::tr("Unknown state");
 		}
 		break;
 	}
@@ -164,7 +164,7 @@ QString ShareLibrary::getErrorCodeDescription( ShareLibrary::EShareResultCode eC
 
 	default:
 		{
-			return QObject::tr("unknown error");
+			return QObject::tr("Unknown problem!");
 		}
 		break;
 	}
@@ -419,7 +419,7 @@ QString ShareLibrary::getPageLoadResultString(EPageLoadResult eResult)
 	case ShareLibrary::Result_OtherError:		return QObject::tr("Failed to load page!", "ShareLib");
 	case ShareLibrary::Result_FailedToAuth:	return QObject::tr("Failed to authorize!", "ShareLib");
 	case ShareLibrary::Result_UserCancel:		return QObject::tr("User cancel!", "ShareLib");
-	default:															return QObject::tr("Unknown question!", "ShareLib");
+	default:															return QObject::tr("Unknown problem!", "ShareLib");
 	}
 }
 

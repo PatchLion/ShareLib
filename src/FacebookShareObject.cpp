@@ -47,21 +47,26 @@ void CFacebookShareObject::onReplayFinishedAlbum()
 	if (rep)
 	{
 		ShareLibrary::MapAlbumInfo mapAlbumInfo;
-		const bool bSuc = ShareLibrary::readFacebookAlbumsInfoByByteArray(rep->readAll(), mapAlbumInfo);
-
-		replyTempObjectManager().removeTempReply(rep);
-
-		if (bSuc)
+		if (QNetworkReply::NoError == rep->error())
 		{
-			emit albumsInfoRefreshFinished(true, mapAlbumInfo);
+			const bool bSuc = ShareLibrary::readFacebookAlbumsInfoByByteArray(rep->readAll(), mapAlbumInfo);
+
+			if (bSuc)
+			{
+				emit albumsInfoRefreshFinished(true, mapAlbumInfo);
+			}
+			else
+			{
+				emit albumsInfoRefreshFinished(false, mapAlbumInfo);
+			}
 		}
 		else
 		{
 			emit albumsInfoRefreshFinished(false, mapAlbumInfo);
 		}
+
 	}
 }
-
 
 void CFacebookShareObject::onReplayFinishedUpload()
 {
@@ -69,17 +74,23 @@ void CFacebookShareObject::onReplayFinishedUpload()
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 	if (rep)
 	{
-		QString all = QString::fromUtf8(rep->readAll());
-
-		replyTempObjectManager().removeTempReply(rep);
-
-		if(all.contains("\"id\""))
-		{		
-			emit shareFinished(true, "");
-		}
-		else if (all.contains("error") || all.isEmpty())
+		if (QNetworkReply::NoError == rep->error())
 		{
-			emit shareFinished(false, "");
+			QString all = QString::fromUtf8(rep->readAll());
+
+			if (all.contains("\"id\""))
+			{
+				emit shareFinished(true, "");
+			}
+			else if (all.contains("error") || all.isEmpty())
+			{
+				qWarning() << all;
+				emit shareFinished(false, tr("Return error from Facebook!", "ShareLib"));
+			}
+		}
+		else
+		{
+			emit shareFinished(false, tr("Request error code: %1", "ShareLib").arg(rep->error()));
 		}
 	}
 }
@@ -88,7 +99,7 @@ bool CFacebookShareObject::shareToFacebook(const QString& strDescriptionStr, con
 {
 	if (!networkAccessManager())
 	{
-		emit shareFinished(false, "");
+		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
 		return false;
 	}
 
@@ -143,12 +154,12 @@ bool CFacebookShareObject::shareToFacebook(const QString& strDescriptionStr, con
 		}
 		else
 		{
-			emit shareFinished(false, "");
+			emit shareFinished(false, tr("Failed to create network request!", "ShareLib"));
 		}
 	}
 	else
 	{
-		emit shareFinished(false, "");
+		emit shareFinished(false, tr("Can not open the image file!", "ShareLib"));
 	}
 
 	return false;

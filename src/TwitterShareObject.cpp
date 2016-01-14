@@ -87,7 +87,7 @@ bool CTwitterShareObject::shareToTwitter(const QString& strDescriptionStr, const
 	}
 	else
 	{
-		emit shareFinished(false, "");
+		emit shareFinished(false, tr("Failed to create network request!", "ShareLib"));
 		return false;
 	}
 }
@@ -98,18 +98,23 @@ void CTwitterShareObject::onReplyFinishedUpload()
 
 	if (rep)
 	{
-		QString all = QString::fromUtf8(rep->readAll());
-
-		replyTempObjectManager().removeTempReply(rep);
-		qDebug() << "Twitter upload finish response: " << all;
-
-		if (all.contains("error") || all.isEmpty())
+		if (QNetworkReply::NoError == rep->error())
 		{
-			emit shareFinished(false, "");
+			QString all = QString::fromUtf8(rep->readAll());
+
+			if (all.contains("error") || all.isEmpty())
+			{
+				qWarning() << all;
+				emit shareFinished(false, tr("Return error from Twitter!", "ShareLib"));
+			}
+			else if (all.contains("id") && all.contains("source"))
+			{
+				emit shareFinished(true, "");
+			}
 		}
-		else if (all.contains("id") && all.contains("source"))
+		else
 		{
-			emit shareFinished(true, "");
+			emit shareFinished(false, tr("Request error code: %1", "ShareLib").arg(rep->error()));
 		}
 	}
 }

@@ -75,27 +75,33 @@ void CFlickrAuthorizeWebview::onReplayFinishedGetToken()
 
 	if (rep)
 	{
-		QString all = QString::fromUtf8(rep->readAll());
-
-		replyTempObjectManager().removeTempReply(rep);
-		if (all.contains("token"))
+		if (QNetworkReply::NoError == rep->error())
 		{
-			int fisrt = all.indexOf("token");
-			int last = all.lastIndexOf("token");
-			QString token = all.mid(fisrt + 6, (last - 2) - (fisrt + 6));
-			fisrt = all.indexOf("nsid=");
-			last = all.lastIndexOf(" username");
-			QString userid = all.mid(fisrt + 6, (last - 1) - (fisrt + 6));
+			QString all = QString::fromUtf8(rep->readAll());
 
-			m_strTokenKey = token;
-			m_strUserID = userid;
+			if (all.contains("token"))
+			{
+				int fisrt = all.indexOf("token");
+				int last = all.lastIndexOf("token");
+				QString token = all.mid(fisrt + 6, (last - 2) - (fisrt + 6));
+				fisrt = all.indexOf("nsid=");
+				last = all.lastIndexOf(" username");
+				QString userid = all.mid(fisrt + 6, (last - 1) - (fisrt + 6));
 
-			setResultCode(ShareLibrary::Result_Success);
-			setState(ShareLibrary::ShowSuccess);
+				m_strTokenKey = token;
+				m_strUserID = userid;
 
-			emit tokenReceived();
+				setResultCode(ShareLibrary::Result_Success);
+				setState(ShareLibrary::ShowSuccess);
 
-			startDelayClose();
+				emit tokenReceived();
+
+				startDelayClose();
+			}
+			else
+			{
+				onPageLoadFinished(ShareLibrary::Result_FailedToAuth);
+			}
 		}
 		else
 		{
@@ -188,7 +194,6 @@ void CFlickrAuthorizeWebview::onReplayFinishedGetFrob()
 	{
 		QString all = QString::fromUtf8(rep->readAll());
 
-		replyTempObjectManager().removeTempReply(rep);
 		if (all.contains("frob"))
 		{
 			int fisrt = all.indexOf("frob");

@@ -16,7 +16,7 @@
 #include "ShareStructDefine.h"
 #include "NetworkReplyTempObjManager.h"
 
-#define  SHARE_IMAGE_TIMEOUT		(50 * 1000)  //分享超时
+#define  SHARE_IMAGE_TIMEOUT		(30 * 1000)  //分享超时
 
 class QNetworkAccessManager;
 class CShareFrameBase : public QObject
@@ -36,15 +36,9 @@ protected:
 	CNetworkReplyTempObjManager& replyTempObjectManager() { return m_replyObjectManager; }
 	QNetworkAccessManager* networkAccessManager() { return m_pAccessMgr; }
 
-	private slots :
-		//处理超时
-		void onReplyTimeOut(const QVariant& replyData);
-
 signals:
 	//分享结果
 	void shareFinished(bool bSuccess, const  QString& strDesc);
-
-
 
 private:
 	QNetworkAccessManager					*m_pAccessMgr;

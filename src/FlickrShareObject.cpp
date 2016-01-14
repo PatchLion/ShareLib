@@ -49,13 +49,19 @@ void CFlickrShareObject::onReplayFinishedAlbum()
 	if (rep)
 	{
 		ShareLibrary::MapAlbumInfo mapAlbumInfo;
-		const bool bSuc = ShareLibrary::readFlickrAlbumsInfoByByteArray(rep->readAll(), mapAlbumInfo);
 
-		replyTempObjectManager().removeTempReply(rep);
-
-		if (bSuc)
+		if (QNetworkReply::NoError == rep->error())
 		{
-			emit albumsInfoRefreshFinished(true, mapAlbumInfo);
+			const bool bSuc = ShareLibrary::readFlickrAlbumsInfoByByteArray(rep->readAll(), mapAlbumInfo);
+
+			if (bSuc)
+			{
+				emit albumsInfoRefreshFinished(true, mapAlbumInfo);
+			}
+			else
+			{
+				emit albumsInfoRefreshFinished(false, mapAlbumInfo);
+			}
 		}
 		else
 		{
@@ -71,20 +77,26 @@ void CFlickrShareObject::onReplayFinishedUpload()
 
 	if (rep)
 	{
-		QString all = QString::fromUtf8(rep->readAll());
-
-		replyTempObjectManager().removeTempReply(rep);
-
-		if (all.contains("photoid"))
+		if (QNetworkReply::NoError == rep->error())
 		{
-			int firstindex = all.indexOf("<photoid>");
-			int endindex = all.indexOf("</photoid>");
-			m_strCurrentPhotoID = all.mid(firstindex + 9, endindex - firstindex - 9);
-			startUploadPhotoToAlbum();
+			QString all = QString::fromUtf8(rep->readAll());
+
+			if (all.contains("photoid"))
+			{
+				int firstindex = all.indexOf("<photoid>");
+				int endindex = all.indexOf("</photoid>");
+				m_strCurrentPhotoID = all.mid(firstindex + 9, endindex - firstindex - 9);
+				startUploadPhotoToAlbum();
+			}
+			else
+			{
+				qWarning() << all;
+				emit shareFinished(false, tr("Return error from Flickr!", "ShareLib"));
+			}
 		}
 		else
 		{
-			emit shareFinished(false, "");
+			emit shareFinished(false, tr("Request error code: %1", "ShareLib").arg(rep->error()));
 		}
 	}
 }
@@ -93,7 +105,7 @@ bool CFlickrShareObject::shareToFlickr(const QString& strTitle, const QString& s
 {
 	if (!networkAccessManager())
 	{
-		emit shareFinished(false, "");
+		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
 
 		return false;
 	}
@@ -180,12 +192,12 @@ bool CFlickrShareObject::shareToFlickr(const QString& strTitle, const QString& s
 		}
 		else
 		{
-			emit shareFinished(false, "");
+			emit shareFinished(false, tr("Failed to create network request!", "ShareLib"));
 		}
 	}
 	else
 	{
-		emit shareFinished(false, "");
+		emit shareFinished(false, tr("Can not open the image file!", "ShareLib"));
 	}
 
 
@@ -194,12 +206,19 @@ bool CFlickrShareObject::shareToFlickr(const QString& strTitle, const QString& s
 
 bool CFlickrShareObject::share(IShareParam* pParam)
 {
+
 	if (!CShareFrameBase::share(pParam))
 	{
 		return false;
 	}
 
 	CFlickrShareParam* pFlickrParam = dynamic_cast<CFlickrShareParam*>(pParam);
+
+	if (pFlickrParam->albumID.isEmpty())
+	{
+		emit shareFinished(false, tr("You must select one album!", "ShareLib"));
+		return false;
+	}
 
 	if (pFlickrParam)
 	{
@@ -216,9 +235,9 @@ void CFlickrShareObject::setTokenKey(const QString& tokenKey)
 
 void CFlickrShareObject::startUploadPhotoToAlbum()
 {
-	if (m_strCurrentPhotoID.isEmpty() || m_strTempAlbumID.isEmpty() || !networkAccessManager())
+	if (m_strCurrentPhotoID.isEmpty() || !networkAccessManager())
 	{
-		emit shareFinished(false, "");
+		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
 		return;
 	}
 
@@ -271,7 +290,7 @@ void CFlickrShareObject::startUploadPhotoToAlbum()
 	}
 	else
 	{
-		emit shareFinished(false, "");
+		emit shareFinished(false, tr("Failed to create network request!", "ShareLib"));
 	}
 
 }
@@ -281,17 +300,26 @@ void CFlickrShareObject::onReplayFinishedTransform()
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 	if (rep)
 	{
-		QString all = QString::fromUtf8(rep->readAll());
 
-		replyTempObjectManager().removeTempReply(rep);
-		if (all.contains("rsp stat=\"ok\""))
+		if (QNetworkReply::NoError == rep->error())
 		{
-			emit shareFinished(true, "");
+			QString all = QString::fromUtf8(rep->readAll());
+
+			if (all.contains("rsp stat=\"ok\""))
+			{
+				emit shareFinished(true, "");
+			}
+			else
+			{
+				qWarning() << all;
+				emit shareFinished(false, tr("Return error from Flickr!", "ShareLib"));
+			}
 		}
 		else
 		{
-			emit shareFinished(false, "");
+			emit shareFinished(false, tr("Request error code: %1", "ShareLib").arg(rep->error()));
 		}
+		
 	}
 }
 
