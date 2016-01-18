@@ -1,11 +1,11 @@
 #include "TwitterShareObject.h"
 #include "ShareStructDefine.h"
 #include "SharePublicFuncDefine.h"
-#include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QtCore/QFile>
 #include <QtNetwork/QHttpMultiPart>
 #include "TwitterShare.h"
+#include <QtCore/QTimer>
 
 CTwitterShareObject::CTwitterShareObject(const QString& strConsumerKey, /*在twitter上申请的用户Key */ const QString& strConsumerSecret, /*在twitter上申请的用户秘钥 */ QObject *parent /*= 0*/)
 	: CShareFrameBase(parent)
@@ -14,20 +14,12 @@ CTwitterShareObject::CTwitterShareObject(const QString& strConsumerKey, /*在twit
 {
 }
 
-
-
 CTwitterShareObject::~CTwitterShareObject()
 {
 }
 
 bool CTwitterShareObject::shareToTwitter(const QString& strDescriptionStr, const QString& strFilePath)
 {
-	if (!networkAccessManager())
-	{
-		emit shareFinished(false, "Network object is null!");
-		return false;
-	}
-
 	QFile* pFile = new QFile(strFilePath);
 
 	if (!pFile->open(QIODevice::ReadOnly))
@@ -76,12 +68,14 @@ bool CTwitterShareObject::shareToTwitter(const QString& strDescriptionStr, const
 	ShareLibrary::createSSLRequest(req, url);
 	req.setRawHeader("Authorization", oauthHeader);
 
-	QNetworkReply *pTempReply = networkAccessManager()->post(req, multiPart);
+	QNetworkReply *pTempReply = networkAccessManager().post(req, multiPart);
 	multiPart->setParent(pTempReply);
 
 	if (pTempReply)
 	{
-		replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
+		pTempReply->setParent(&networkAccessManager());
+		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+		//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplyFinishedUpload()));
 		return true;
 	}
@@ -96,27 +90,53 @@ void CTwitterShareObject::onReplyFinishedUpload()
 {
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 
-	if (rep)
-	{
-		if (QNetworkReply::NoError == rep->error())
-		{
-			QString all = QString::fromUtf8(rep->readAll());
 
-			if (all.contains("error") || all.isEmpty())
-			{
-				qWarning() << all;
-				emit shareFinished(false, tr("Return error from Twitter!", "ShareLib"));
-			}
-			else if (all.contains("id") && all.contains("source"))
-			{
-				emit shareFinished(true, "");
-			}
+	if (!rep)
+	{
+		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
+		return;
+	}
+
+	QNetworkReply::NetworkError errorCode = rep->error();
+	if (QNetworkReply::NoError == errorCode)
+	{
+		QString all = QString::fromUtf8(rep->readAll());
+
+		if (all.contains("error") || all.isEmpty())
+		{
+			qWarning() << all;
+			emit shareFinished(false, tr("Return error from Twitter!", "ShareLib"));
 		}
-		else
+		else if (all.contains("id") && all.contains("source"))
+		{
+			emit shareFinished(true, "");
+		}
+	}
+	else
+	{
+		switch (errorCode)
+		{
+		case QNetworkReply::OperationCanceledError:
+		{
+			if (!isUserCancel())
+			{
+				emit shareFinished(false, tr("Request time out!", "ShareLib"));
+			}
+			else
+			{
+				emit shareFinished(false, tr("Cancelled by user!", "ShareLib"));
+			}
+			
+		}
+		break;
+		default:
 		{
 			emit shareFinished(false, tr("Request error code: %1", "ShareLib").arg(rep->error()));
 		}
+		break;
+		}
 	}
+
 }
 
 bool CTwitterShareObject::share(IShareParam* pParam)

@@ -4,9 +4,8 @@
 #include <QtCore/QDebug>
 #include <QtCore/QUrlQuery>
 #include <QtNetwork/QNetworkReply>
-#include <QtNetwork/QNetworkAccessManager>
-#include "qsingleton.h"
 #include "TwitterShare.h"
+#include <QtCore/QTimer>
 
 #define TWITTER_REQUEST_TOKEN_URL								"https://api.twitter.com/oauth/request_token"
 #define TWITTER_AUTHORIZE_URL											"https://api.twitter.com/oauth/authorize"
@@ -87,11 +86,13 @@ void CTwitterAuthorizeWebview::startRequestAccessToken(const QString& strPin)
 	req.setRawHeader("Authorization", oauthHeader);
 	req.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
-	QNetworkReply* pTempReply = Singleton<QNetworkAccessManager>::instance().post(req, QByteArray());
+	QNetworkReply* pTempReply = networkManager().post(req, QByteArray());
 
 	if (pTempReply)
 	{
-		replyTempObjectManager().addTempReply(pTempReply);
+		pTempReply->setParent(&networkManager());
+		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+		//replyTempObjectManager().addTempReply(pTempReply);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedAccessToken()), Qt::UniqueConnection);
 	}
 	else
@@ -103,12 +104,17 @@ void CTwitterAuthorizeWebview::onReplayFinishedAccessToken()
 {
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 
-	if (rep && rep->error() == QNetworkReply::NoError)
+	if (!rep)
+	{
+		onPageLoadFinished(ShareLibrary::Result_OtherError);
+		return;
+	}
+
+	if (rep->error() == QNetworkReply::NoError)
 	{
 		const QByteArray response = rep->readAll();
 
 		parseTokens(response);
-
 
 		if (m_strOauthToken.isEmpty() || m_strOauthTokenSecret.isEmpty())
 		{
@@ -126,7 +132,14 @@ void CTwitterAuthorizeWebview::onReplayFinishedAccessToken()
 	}
 	else
 	{
-		onPageLoadFinished(ShareLibrary::Result_OtherError);
+		if (isUserCancel())
+		{
+			onPageLoadFinished(ShareLibrary::Result_UserCancel);
+		}
+		else
+		{
+			onPageLoadFinished(ShareLibrary::Result_TimeOut);
+		}
 	}
 }
 void CTwitterAuthorizeWebview::startToAuthorize()
@@ -151,12 +164,13 @@ void CTwitterAuthorizeWebview::startRequestOauthToken()
 	req.setRawHeader("Authorization", oauthHeader);
 	req.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
-	QNetworkReply* pTempReply = Singleton<QNetworkAccessManager>::instance().post(req, QByteArray());//
+	QNetworkReply* pTempReply = networkManager().post(req, QByteArray());//
 
 	if (pTempReply)
 	{
-		replyTempObjectManager().addTempReply(pTempReply);
-
+		pTempReply->setParent(&networkManager());
+		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+		//replyTempObjectManager().addTempReply(pTempReply);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedOauthToken()), Qt::UniqueConnection);
 	}
 	else
@@ -170,7 +184,13 @@ void CTwitterAuthorizeWebview::onReplayFinishedOauthToken()
 {
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 
-	if (rep && rep->error() == QNetworkReply::NoError)
+	if (!rep)
+	{
+		onPageLoadFinished(ShareLibrary::Result_OtherError);
+		return;
+	}
+
+	if (rep->error() == QNetworkReply::NoError)
 	{
 		const QByteArray response = rep->readAll();
 
@@ -189,11 +209,14 @@ void CTwitterAuthorizeWebview::onReplayFinishedOauthToken()
 	}
 	else
 	{
-		if (rep)
+		if (isUserCancel())
 		{
-			qDebug() << rep->errorString();
+			onPageLoadFinished(ShareLibrary::Result_UserCancel);
 		}
-		onPageLoadFinished(ShareLibrary::Result_OtherError);
+		else
+		{
+			onPageLoadFinished(ShareLibrary::Result_TimeOut);
+		}
 	}
 }
 

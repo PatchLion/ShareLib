@@ -12,9 +12,11 @@
 #ifndef AuthorizeWebviewBase_h__
 #define AuthorizeWebviewBase_h__
 #include "ShareMacroDefine.h"
-#include "NetworkReplyTempObjManager.h"
+//#include "NetworkReplyTempObjManager.h"
 
 #include <QtCore/qglobal.h>
+#include <QtNetwork/QNetworkAccessManager>
+
 #if(QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
@@ -63,7 +65,7 @@ protected:
     void showEvent(QShowEvent* pEvent);
 	QSize sizeHint() const;
 
-	CNetworkReplyTempObjManager& replyTempObjectManager() { return m_replyObjectManager; }
+	//CNetworkReplyTempObjManager& replyTempObjectManager() { return m_replyObjectManager; }
 
 
 	//开始请求授权
@@ -89,6 +91,12 @@ protected:
 	//启动延时关闭
 	void startDelayClose();
 
+	//获取网络管理对象 
+	QNetworkAccessManager& networkManager() { return m_networkManager; }
+
+	//是否用户退出
+	bool isUserCancel() const { return m_bUserCancel; }
+
 private:
 	void initWebview();
 
@@ -107,13 +115,15 @@ protected slots :
 
 	//延时关闭
 	void onDelayClose();
+    
 
 signals:
 	void widgetClose();
 
 	
 private:
-	CNetworkReplyTempObjManager		m_replyObjectManager;		//
+
+	//CNetworkReplyTempObjManager		m_replyObjectManager;		//
 	bool															m_bIsFirstLoad;
 	QColor													m_textColor;
 	QFont														m_textFont;
@@ -126,5 +136,7 @@ private:
 	QPixmap													m_backgroundImage;																			//背景图片
 	CWebviewContainer*							m_pWebview;
 	QColor														m_backgroundColor;
+	QNetworkAccessManager						m_networkManager;
+	bool															m_bUserCancel;
 };
 #endif // AuthorizeWebviewBase_h__

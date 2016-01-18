@@ -61,9 +61,6 @@
     <ClCompile Include="..\src\IWebviewStyle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\NetworkReplyTempObjManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\ShareFrameBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -114,9 +111,6 @@
     <ClInclude Include="..\Include\IWebviewStyle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <CustomBuild Include="..\Include\NetworkReplyTempObjManager.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="..\Include\ShareFrameBase.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
@@ -141,12 +135,6 @@
     <CustomBuild Include="..\Include\WebviewContainer.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <ClInclude Include="..\src\call_once.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\qsingleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp">
@@ -168,9 +156,6 @@
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\temp\GeneratedFiles\moc_FlickrShareObject.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="..\temp\GeneratedFiles\moc_ShareFrameBase.cpp">

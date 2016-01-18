@@ -14,11 +14,9 @@
 
 #include "ShareMacroDefine.h"
 #include "ShareStructDefine.h"
-#include "NetworkReplyTempObjManager.h"
+//#include "NetworkReplyTempObjManager.h"
+#include <QtNetwork/QNetworkAccessManager>
 
-#define  SHARE_IMAGE_TIMEOUT		(30 * 1000)  //分享超时
-
-class QNetworkAccessManager;
 class CShareFrameBase : public QObject
 {   
 	Q_OBJECT
@@ -33,15 +31,17 @@ public slots:
 	virtual bool share(IShareParam* pParam);
 
 protected:
-	CNetworkReplyTempObjManager& replyTempObjectManager() { return m_replyObjectManager; }
-	QNetworkAccessManager* networkAccessManager() { return m_pAccessMgr; }
+	//CNetworkReplyTempObjManager& replyTempObjectManager() { return m_replyObjectManager; }
+	QNetworkAccessManager& networkAccessManager() { return m_networkManager; }
 
+	bool isUserCancel() const { return m_bIsUserCancel; }
 signals:
 	//分享结果
 	void shareFinished(bool bSuccess, const  QString& strDesc);
 
 private:
-	QNetworkAccessManager					*m_pAccessMgr;
-	CNetworkReplyTempObjManager		m_replyObjectManager;		//
+	QNetworkAccessManager					m_networkManager;
+	bool														m_bIsUserCancel;
+	//CNetworkReplyTempObjManager		m_replyObjectManager;		//
 };
 #endif // ShareFrameBase_h__

@@ -15,7 +15,7 @@
 #endif // !SAFE_DELETE_QBJECT
 
 
-#define DEFAULT_TIMEOUT_INTERVAL			(60*1000) //默认超时时间
+#define DEFAULT_TIMEOUT_INTERVAL			(30*1000) //默认超时时间
 
 namespace ShareLibrary
 {

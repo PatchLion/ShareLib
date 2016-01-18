@@ -6,6 +6,10 @@ CFaceBookAuthorizeWebview::CFaceBookAuthorizeWebview(const QString& clientID, QW
 : CAuthorizeWebviewBase(parent)
 , m_strClientID(clientID)
 {
+    
+    m_loadUrlTimer.setInterval(DEFAULT_TIMEOUT_INTERVAL);
+    
+    connect(&m_loadUrlTimer, &QTimer::timeout, this, &CFaceBookAuthorizeWebview::onLoadUrlTimeout);
 }
 
 
@@ -14,6 +18,11 @@ CFaceBookAuthorizeWebview::~CFaceBookAuthorizeWebview()
 
 }
 
+void CFaceBookAuthorizeWebview::onLoadUrlTimeout()
+{
+    m_loadUrlTimer.stop();
+    onPageLoadFinished(ShareLibrary::Result_TimeOut);
+}
 
 void CFaceBookAuthorizeWebview::onPageLoadFinished(ShareLibrary::EPageLoadResult eResult)
 {
@@ -29,7 +38,7 @@ void CFaceBookAuthorizeWebview::onPageLoadFinished(ShareLibrary::EPageLoadResult
 		{
 			if (strUrl.contains("login.php?skip_api_login="))
 			{
-				//µÇÂ¼×Ö·û´®ÖÐ½âÎö¡°È¡Ïû¡±µÄUrl
+				//ÂµÂ«Â¬Âºâ—ŠÃ·âˆ‘ËšÂ¥Ã†Ã·â€“Î©â€šÅ’Ë†Â°âˆžÂ»Â°Å“ËšÂ°Â±ÂµÆ’Url
 				QString strKey1("cancel_url=");
 				QString strKey2("&display=popup");
 				int nStartIndex = strUrl.indexOf(strKey1);
@@ -103,6 +112,7 @@ void CFaceBookAuthorizeWebview::startToAuthorize()
 
 	QString url = authorizationUrl();
 	
+    m_loadUrlTimer.start();
 	loadUrl(url);
 }
 

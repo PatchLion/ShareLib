@@ -234,7 +234,6 @@
     <ClCompile Include="..\src\FlickrShare.cpp" />
     <ClCompile Include="..\src\FlickrShareObject.cpp" />
     <ClCompile Include="..\src\IWebviewStyle.cpp" />
-    <ClCompile Include="..\src\NetworkReplyTempObjManager.cpp" />
     <ClCompile Include="..\src\ShareFrameBase.cpp" />
     <ClCompile Include="..\src\SharePublicFuncDefine.cpp" />
     <ClCompile Include="..\src\ShareStructDefine.cpp" />
@@ -372,24 +371,6 @@
     </CustomBuild>
     <ClInclude Include="..\Include\IWebviewContainer.h" />
     <ClInclude Include="..\Include\IWebviewStyle.h" />
-    <CustomBuild Include="..\Include\NetworkReplyTempObjManager.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Include\NetworkReplyTempObjManager.h;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\Include\NetworkReplyTempObjManager.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\NetworkReplyTempObjManager.h -o ..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\NetworkReplyTempObjManager.h -o ..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MOC ..\Include\NetworkReplyTempObjManager.h</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC ..\Include\NetworkReplyTempObjManager.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\Include\NetworkReplyTempObjManager.h;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\Include\NetworkReplyTempObjManager.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\NetworkReplyTempObjManager.h -o ..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Qt\Qt5.3.2_32_onopengl\5.3\msvc2013\bin\moc.exe  -DUNICODE -DWIN32 -DQT_GUI_LIB -DQT_CORE_LIB -DQT_OPENGL_ES_2 -DQT_OPENGL_ES_2_ANGLE -D_MSC_VER=1800 -D_WIN32 -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/mkspecs/win32-msvc2013 -IE:/daixb_work/Desktop_Project/ShareLib/vs2013 -IE:/daixb_work/Desktop_Project/ShareLib/Include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtGui -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtANGLE -IC:/Qt/Qt5.3.2_32_onopengl/5.3/msvc2013/include/QtCore ..\Include\NetworkReplyTempObjManager.h -o ..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MOC ..\Include\NetworkReplyTempObjManager.h</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC ..\Include\NetworkReplyTempObjManager.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp;%(Outputs)</Outputs>
-    </CustomBuild>
     <CustomBuild Include="..\Include\ShareFrameBase.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Include\ShareFrameBase.h;%(AdditionalInputs)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\Include\ShareFrameBase.h;%(AdditionalInputs)</AdditionalInputs>
@@ -483,8 +464,6 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\temp\GeneratedFiles\moc_WebviewContainer.cpp;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\temp\GeneratedFiles\moc_WebviewContainer.cpp;%(Outputs)</Outputs>
     </CustomBuild>
-    <ClInclude Include="..\src\call_once.h" />
-    <ClInclude Include="..\src\qsingleton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\temp\GeneratedFiles\moc_AuthorizeWebviewBase.cpp" />
@@ -494,7 +473,6 @@
     <ClCompile Include="..\temp\GeneratedFiles\moc_FlickrAuthorizeWebview.cpp" />
     <ClCompile Include="..\temp\GeneratedFiles\moc_FlickrShare.cpp" />
     <ClCompile Include="..\temp\GeneratedFiles\moc_FlickrShareObject.cpp" />
-    <ClCompile Include="..\temp\GeneratedFiles\moc_NetworkReplyTempObjManager.cpp" />
     <ClCompile Include="..\temp\GeneratedFiles\moc_ShareFrameBase.cpp" />
     <ClCompile Include="..\temp\GeneratedFiles\moc_TwitterAuthorizeWebview.cpp" />
     <ClCompile Include="..\temp\GeneratedFiles\moc_TwitterShare.cpp" />

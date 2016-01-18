@@ -4,12 +4,10 @@
 
 CShareFrameBase::CShareFrameBase(QObject *parent)
 : QObject(parent)
-, m_pAccessMgr(0)
+, m_networkManager(0)
+, m_bIsUserCancel(false)
 {
 	qRegisterMetaType<ShareLibrary::MapAlbumInfo>("ShareLibrary::MapAlbumInfo");
-
-	m_pAccessMgr = new QNetworkAccessManager(this);
-
 	QNetworkProxyFactory::setUseSystemConfiguration(true);
 }
 
@@ -23,12 +21,6 @@ bool CShareFrameBase::share(IShareParam* pParam)
 	if (!pParam)
 	{
 		emit shareFinished(false, tr("Invalid parameter!", "ShareLib"));
-		return false;
-	}
-
-	if (!networkAccessManager())
-	{
-		emit shareFinished(false, tr("Application error!", "ShareLib"));
 		return false;
 	}
 

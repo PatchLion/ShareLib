@@ -12,12 +12,13 @@ CAuthorizeWebviewBase::CAuthorizeWebviewBase(QWidget *parent)
 , m_nCurrentProcess(0)
 , m_bIsFirstLoad(true)
 , m_backgroundColor("#262626")
+, m_bUserCancel(false)
 {
 	m_textColor = QColor("#484848");
 	m_textFont.setWeight(2);
 	m_textFont.setFamily(QString::fromLocal8Bit("Î¢ÈíÑÅºÚ"));
 	m_textFont.setPointSize(18);
-
+  
 	setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 
 	initWebview();
@@ -26,7 +27,7 @@ CAuthorizeWebviewBase::CAuthorizeWebviewBase(QWidget *parent)
 
 CAuthorizeWebviewBase::~CAuthorizeWebviewBase()
 {
-	disconnect(this);
+	//disconnect(this);
 }
 
 void CAuthorizeWebviewBase::closeEvent(QCloseEvent* pEvent)
@@ -132,6 +133,7 @@ void CAuthorizeWebviewBase::initWebview()
 	if (!m_pWebview)
 	{
 		m_pWebview = new CWebviewContainer(this);
+        m_pWebview->hide();
 		m_pWebview->loadUrl("");
 		connect(m_pWebview, &CWebviewContainer::pageLoadProcess, this, &CAuthorizeWebviewBase::onPageLoadProcess);
 		connect(m_pWebview, &CWebviewContainer::pageLoadFinished, this, &CAuthorizeWebviewBase::onPageLoadFinished);
@@ -139,7 +141,6 @@ void CAuthorizeWebviewBase::initWebview()
 		pMainLayout->setMargin(0);
 		pMainLayout->setSpacing(0);
 		pMainLayout->addWidget(m_pWebview);
-		m_pWebview->setVisible(false);
 	}
 }
 

@@ -7,6 +7,8 @@
 #include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QApplication>
 #include <QtCore/QThread>
+#include <QtCore/QDebug>
+#include <QtCore/QThreadPool>
 
 CFacebookShare::CFacebookShare(const QString& clientID, QObject *parent/*=0*/)
 	: QObject(parent)
@@ -34,10 +36,12 @@ CFacebookShare::~CFacebookShare()
 	{
 		m_pShareThread->quit();
 		m_pShareThread->wait();
-		SAFE_DELETE_QBJECT(m_pShareThread);
+		//SAFE_DELETE_QBJECT(m_pShareThread);
 	}
 	releaseWebView();
 	SAFE_DELETE_QBJECT(m_pShareObject);
+    
+    QThreadPool::globalInstance()->waitForDone();
 }
 
 void CFacebookShare::showAuthorizeWebView()
@@ -162,7 +166,8 @@ void CFacebookShare::releaseWebView()
 {
 	if (m_pAuthorizeWebview)
 	{
-		disconnect(m_pAuthorizeWebview);
+        qDebug() << "Release facebook authorize webview!";
+		//disconnect(m_pAuthorizeWebview);
 		SAFE_DELETE_QBJECT(m_pAuthorizeWebview);
 	}
 }

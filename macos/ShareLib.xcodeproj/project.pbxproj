@@ -40,10 +40,8 @@
 		91F12C701EC9FAF03B953055 /* FacebookShare.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 44B76498D21DAC355ABBC7A6 /* FacebookShare.cpp */; settings = {ATTRIBUTES = (); }; };
 		9436BDB411A37DC5E9345CB4 /* qrc_shareimages.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = CA980F4DF7BDAA0FB75F0A75 /* qrc_shareimages.cpp */; settings = {ATTRIBUTES = (); }; };
 		9D468EF75F1AD0D7FFDBAF5E /* AuthorizeWebviewBase.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 31E79178E719916B95D05109 /* AuthorizeWebviewBase.cpp */; settings = {ATTRIBUTES = (); }; };
-		9FBC21222493ACD2D2829021 /* NetworkReplyTempObjManager.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 5E4AB5CAEE2A2781F636735B /* NetworkReplyTempObjManager.cpp */; settings = {ATTRIBUTES = (); }; };
 		A41E06490581F6B06C5AC4BC /* moc_TwitterShare.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 078EEF3C22377CDF1C8B5C11 /* moc_TwitterShare.cpp */; settings = {ATTRIBUTES = (); }; };
 		AB8DC46DB3EC778BB7D8A831 /* CNotifyWebView.mm in Compile Sources */ = {isa = PBXBuildFile; fileRef = 48509C8581E3ADFE271D9EDD /* CNotifyWebView.mm */; settings = {ATTRIBUTES = (); }; };
-		ACB377B7B7A85D6F4EE68170 /* moc_NetworkReplyTempObjManager.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = A2C3B802801B2942A6FE4CB5 /* moc_NetworkReplyTempObjManager.cpp */; settings = {ATTRIBUTES = (); }; };
 		B5D784DC5210EC963BC42B6B /* WebviewContainer.mm in Compile Sources */ = {isa = PBXBuildFile; fileRef = DD47C5D4E629EA1B9CABB9D8 /* WebviewContainer.mm */; settings = {ATTRIBUTES = (); }; };
 		C4EF5F1ABF2D51F649504B7E /* FaceBookAuthorizeWebview.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = CDAC3FB5A3257AB2D1A1D9B9 /* FaceBookAuthorizeWebview.cpp */; settings = {ATTRIBUTES = (); }; };
 		C610592C53BE568016B76636 /* moc_FacebookShare.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 6BC816C602F6ABCDC7CF26AF /* moc_FacebookShare.cpp */; settings = {ATTRIBUTES = (); }; };
@@ -114,7 +112,6 @@
 		58D2A62B3CFAD8AA561962F3 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_enginio.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_enginio.pri"; sourceTree = "<absolute>"; };
 		5AD9010CA1C9DCABE2711073 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_positioning.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_positioning.pri"; sourceTree = "<absolute>"; };
 		5D5C934EB013E94E3F043811 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_widgets.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_widgets.pri"; sourceTree = "<absolute>"; };
-		5E4AB5CAEE2A2781F636735B /* NetworkReplyTempObjManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkReplyTempObjManager.cpp; path = ../src/NetworkReplyTempObjManager.cpp; sourceTree = "<absolute>"; };
 		604C1240225156DD476C654C /* TwitterShare.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TwitterShare.cpp; path = ../src/TwitterShare.cpp; sourceTree = "<absolute>"; };
 		6086DB58B1AB3E89DB29FF11 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_macextras_private.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_macextras_private.pri"; sourceTree = "<absolute>"; };
 		61C30A51BE4FB593A679F10E /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_sensors.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_sensors.pri"; sourceTree = "<absolute>"; };
@@ -135,7 +132,6 @@
 		7D2D0247F21D1E800856DE89 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_sensors_private.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_sensors_private.pri"; sourceTree = "<absolute>"; };
 		814898DC9B7861AED62474D9 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_declarative.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_declarative.pri"; sourceTree = "<absolute>"; };
 		8171E3891365E9332D540EC0 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/common/mac.conf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/common/mac.conf"; sourceTree = "<absolute>"; };
-		842337A248549A71E0D04F48 /* call_once.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = call_once.h; path = ../src/call_once.h; sourceTree = "<absolute>"; };
 		8487E88C3E621126AF2105BA /* WebviewContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebviewContainer.h; path = ../Include/WebviewContainer.h; sourceTree = "<absolute>"; };
 		84E896A0C96467383C5FCA78 /* shareimages.qrc */ = {isa = PBXFileReference; lastKnownFileType = text; name = shareimages.qrc; path = ../shareimages.qrc; sourceTree = "<absolute>"; };
 		852B21ECBE2E6753843D8647 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_openglextensions_private.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_openglextensions_private.pri"; sourceTree = "<absolute>"; };
@@ -145,7 +141,6 @@
 		8A51F488A36E45E60489F644 /* FlickrShare.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FlickrShare.cpp; path = ../src/FlickrShare.cpp; sourceTree = "<absolute>"; };
 		8C053B9D56BD97136C63D512 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_nfc_private.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_nfc_private.pri"; sourceTree = "<absolute>"; };
 		8C2D03751A3BDC1E0EBE29C3 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_concurrent.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_concurrent.pri"; sourceTree = "<absolute>"; };
-		8CDAA69F1AA7915CD4AE6296 /* NetworkReplyTempObjManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NetworkReplyTempObjManager.h; path = ../Include/NetworkReplyTempObjManager.h; sourceTree = "<absolute>"; };
 		8FFC34410790018C8E34C023 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_script.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_script.pri"; sourceTree = "<absolute>"; };
 		90FD5318BD5E62A1E8455A29 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_dbus.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_dbus.pri"; sourceTree = "<absolute>"; };
 		91C074250C560E4D9C057AF2 /* ShareMacroDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShareMacroDefine.h; path = ../Include/ShareMacroDefine.h; sourceTree = "<absolute>"; };
@@ -158,7 +153,6 @@
 		9D510E8DB70C2F18E03734D1 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/qconfig.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/qconfig.pri"; sourceTree = "<absolute>"; };
 		A1E68EBF7688F64D53B2A777 /* moc_FacebookShareObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = moc_FacebookShareObject.cpp; path = ../temp/GeneratedFiles/moc_FacebookShareObject.cpp; sourceTree = "<absolute>"; };
 		A24623E638DAC1581C21279A /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_quickparticles_private.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_quickparticles_private.pri"; sourceTree = "<absolute>"; };
-		A2C3B802801B2942A6FE4CB5 /* moc_NetworkReplyTempObjManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = moc_NetworkReplyTempObjManager.cpp; path = ../temp/GeneratedFiles/moc_NetworkReplyTempObjManager.cpp; sourceTree = "<absolute>"; };
 		A32048B6FAF0362F7E3B93C9 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_sql_private.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_sql_private.pri"; sourceTree = "<absolute>"; };
 		AB745978DF0F41D1801ABDA6 /* .qmake.stash */ = {isa = PBXFileReference; lastKnownFileType = file; path = .qmake.stash; sourceTree = "<absolute>"; };
 		AFBFDA53B767E83EB02DFA65 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_xmlpatterns.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_xmlpatterns.pri"; sourceTree = "<absolute>"; };
@@ -170,7 +164,6 @@
 		B7A919FFD3A159AE52C88C89 /* ShareFrameBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShareFrameBase.h; path = ../Include/ShareFrameBase.h; sourceTree = "<absolute>"; };
 		B886C88FFF920D6077F37189 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_qmltest.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_qmltest.pri"; sourceTree = "<absolute>"; };
 		BC384552213BFCC0457FDBCF /* moc_FlickrShareObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = moc_FlickrShareObject.cpp; path = ../temp/GeneratedFiles/moc_FlickrShareObject.cpp; sourceTree = "<absolute>"; };
-		BEBA54FD090F74208638FA22 /* qsingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qsingleton.h; path = ../src/qsingleton.h; sourceTree = "<absolute>"; };
 		BF94AAECEC8BAA5331081A8A /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_xml.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_xml.pri"; sourceTree = "<absolute>"; };
 		C0D0AA4B116D3E7910744C81 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_svg_private.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_svg_private.pri"; sourceTree = "<absolute>"; };
 		C11EB1548703EFFAE5A207A3 /* FlickrShareObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FlickrShareObject.h; path = ../src/FlickrShareObject.h; sourceTree = "<absolute>"; };
@@ -180,7 +173,7 @@
 		C916D33FBF5E3FE0B7382D73 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_printsupport.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_printsupport.pri"; sourceTree = "<absolute>"; };
 		CA980F4DF7BDAA0FB75F0A75 /* qrc_shareimages.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = qrc_shareimages.cpp; path = ../temp/GeneratedFiles/qrc_shareimages.cpp; sourceTree = "<absolute>"; };
 		CD2746EFB7399DCA00267AFA /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_bootstrap_private.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_bootstrap_private.pri"; sourceTree = "<absolute>"; };
-		CDAC3FB5A3257AB2D1A1D9B9 /* FaceBookAuthorizeWebview.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FaceBookAuthorizeWebview.cpp; path = ../src/FaceBookAuthorizeWebview.cpp; sourceTree = "<absolute>"; };
+		CDAC3FB5A3257AB2D1A1D9B9 /* FaceBookAuthorizeWebview.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FaceBookAuthorizeWebview.cpp; path = ../src/FaceBookAuthorizeWebview.cpp; sourceTree = "<absolute>"; };
 		CDC055911B16BBBADA9927A4 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_printsupport_private.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_printsupport_private.pri"; sourceTree = "<absolute>"; };
 		CDCDA5D2D0B3335F32FC7F84 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_testlib_private.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_testlib_private.pri"; sourceTree = "<absolute>"; };
 		CF0D66C820A7081D9CF39409 /* /Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_multimediawidgets.pri */ = {isa = PBXFileReference; lastKnownFileType = text; path = "/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/modules/qt_lib_multimediawidgets.pri"; sourceTree = "<absolute>"; };
@@ -254,7 +247,6 @@
 				8A51F488A36E45E60489F644 /* FlickrShare.cpp */,
 				F3114297970D6406B575BA2E /* FlickrShareObject.cpp */,
 				738C233F8E98C33A9BFB10F3 /* IWebviewStyle.cpp */,
-				5E4AB5CAEE2A2781F636735B /* NetworkReplyTempObjManager.cpp */,
 				05A2213CEDB230ECCE5DA964 /* ShareFrameBase.cpp */,
 				29C40803D3923149755A8FA5 /* SharePublicFuncDefine.cpp */,
 				86B7D24A6195CF6B3341718A /* ShareStructDefine.cpp */,
@@ -262,12 +254,10 @@
 				604C1240225156DD476C654C /* TwitterShare.cpp */,
 				682E643BC1CF1FAB40AEAD8F /* TwitterShareObject.cpp */,
 				6BD821AB305D568114ECA750 /* AuthorizeWebviewBase.h */,
-				842337A248549A71E0D04F48 /* call_once.h */,
 				9AC4D9A3F0257543E6E7AE8D /* FaceBookAuthorizeWebview.h */,
 				FEC43C68FBA4874406C56E6F /* FacebookShareObject.h */,
 				6E7BF6D342F2A0E6E50EEB8A /* FlickrAuthorizeWebview.h */,
 				C11EB1548703EFFAE5A207A3 /* FlickrShareObject.h */,
-				BEBA54FD090F74208638FA22 /* qsingleton.h */,
 				D112929F055FE947A8EA6D11 /* TwitterAuthorizeWebview.h */,
 				406A527FC4BD7D15B9E581C8 /* TwitterShareObject.h */,
 				4BA83A78D95429261F58CFD2 /* CNotifyWebView.h */,
@@ -292,7 +282,6 @@
 				1438FA659BD15307D38D0F90 /* FlickrShare.h */,
 				D529F0AABAFEBFAC8E491957 /* IWebviewContainer.h */,
 				74A5185038C425DDF504BBDB /* IWebviewStyle.h */,
-				8CDAA69F1AA7915CD4AE6296 /* NetworkReplyTempObjManager.h */,
 				B7A919FFD3A159AE52C88C89 /* ShareFrameBase.h */,
 				91C074250C560E4D9C057AF2 /* ShareMacroDefine.h */,
 				D68D131ED0BF3C5CEF8E4825 /* SharePublicFuncDefine.h */,
@@ -318,7 +307,6 @@
 				CA980F4DF7BDAA0FB75F0A75 /* qrc_shareimages.cpp */,
 				6BC816C602F6ABCDC7CF26AF /* moc_FacebookShare.cpp */,
 				9BD53B2DD869ACF0030D7DDD /* moc_FlickrShare.cpp */,
-				A2C3B802801B2942A6FE4CB5 /* moc_NetworkReplyTempObjManager.cpp */,
 				366C2235A60C5BB74BECD25B /* moc_ShareFrameBase.cpp */,
 				078EEF3C22377CDF1C8B5C11 /* moc_TwitterShare.cpp */,
 				F0BFE7B1847849334245BED9 /* moc_WebviewContainer.cpp */,
@@ -566,7 +554,6 @@
 				48419C6EA95E5011D69B604F /* FlickrShare.cpp in Compile Sources */,
 				5CE23C3FB31B5E5301F3F310 /* FlickrShareObject.cpp in Compile Sources */,
 				8D799397C29947929FAE0407 /* IWebviewStyle.cpp in Compile Sources */,
-				9FBC21222493ACD2D2829021 /* NetworkReplyTempObjManager.cpp in Compile Sources */,
 				D5DD6C8186EF40C5CFBBFE3E /* ShareFrameBase.cpp in Compile Sources */,
 				CAFC76850B8D6B7AEB87350E /* SharePublicFuncDefine.cpp in Compile Sources */,
 				1E7EEAE75D76657139667813 /* ShareStructDefine.cpp in Compile Sources */,
@@ -576,7 +563,6 @@
 				9436BDB411A37DC5E9345CB4 /* qrc_shareimages.cpp in Compile Sources */,
 				C610592C53BE568016B76636 /* moc_FacebookShare.cpp in Compile Sources */,
 				CDE476C2339C92801CC5E172 /* moc_FlickrShare.cpp in Compile Sources */,
-				ACB377B7B7A85D6F4EE68170 /* moc_NetworkReplyTempObjManager.cpp in Compile Sources */,
 				5305FF800603DB09282430B5 /* moc_ShareFrameBase.cpp in Compile Sources */,
 				A41E06490581F6B06C5AC4BC /* moc_TwitterShare.cpp in Compile Sources */,
 				216AF9B45B53374B87C30A0F /* moc_WebviewContainer.cpp in Compile Sources */,

@@ -31,25 +31,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/FacebookShareObject.cpp" line="93"/>
+        <location filename="../src/FacebookShareObject.cpp" line="98"/>
+        <source>Request time out!</source>
+        <comment>ShareLib</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FacebookShareObject.cpp" line="103"/>
         <source>Request error code: %1</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/FacebookShareObject.cpp" line="102"/>
+        <location filename="../src/FacebookShareObject.cpp" line="115"/>
         <source>Inner problem!</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/FacebookShareObject.cpp" line="157"/>
+        <location filename="../src/FacebookShareObject.cpp" line="170"/>
         <source>Failed to create network request!</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/FacebookShareObject.cpp" line="162"/>
+        <location filename="../src/FacebookShareObject.cpp" line="175"/>
         <source>Can not open the image file!</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>
@@ -59,40 +65,47 @@
     <name>CFlickrShareObject</name>
     <message>
         <location filename="../src/FlickrShareObject.cpp" line="94"/>
-        <location filename="../src/FlickrShareObject.cpp" line="315"/>
+        <location filename="../src/FlickrShareObject.cpp" line="328"/>
         <source>Return error from Flickr!</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/FlickrShareObject.cpp" line="99"/>
-        <location filename="../src/FlickrShareObject.cpp" line="320"/>
+        <location filename="../src/FlickrShareObject.cpp" line="104"/>
+        <location filename="../src/FlickrShareObject.cpp" line="338"/>
+        <source>Request time out!</source>
+        <comment>ShareLib</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FlickrShareObject.cpp" line="109"/>
+        <location filename="../src/FlickrShareObject.cpp" line="343"/>
         <source>Request error code: %1</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/FlickrShareObject.cpp" line="108"/>
-        <location filename="../src/FlickrShareObject.cpp" line="240"/>
+        <location filename="../src/FlickrShareObject.cpp" line="121"/>
+        <location filename="../src/FlickrShareObject.cpp" line="253"/>
         <source>Inner problem!</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/FlickrShareObject.cpp" line="195"/>
-        <location filename="../src/FlickrShareObject.cpp" line="293"/>
+        <location filename="../src/FlickrShareObject.cpp" line="208"/>
+        <location filename="../src/FlickrShareObject.cpp" line="306"/>
         <source>Failed to create network request!</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/FlickrShareObject.cpp" line="200"/>
+        <location filename="../src/FlickrShareObject.cpp" line="213"/>
         <source>Can not open the image file!</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/FlickrShareObject.cpp" line="219"/>
+        <location filename="../src/FlickrShareObject.cpp" line="232"/>
         <source>You must select one album!</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>
@@ -128,7 +141,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TwitterShareObject.cpp" line="117"/>
+        <location filename="../src/TwitterShareObject.cpp" line="122"/>
+        <source>Request time out!</source>
+        <comment>ShareLib</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/TwitterShareObject.cpp" line="127"/>
         <source>Request error code: %1</source>
         <comment>ShareLib</comment>
         <translation type="unfinished"></translation>

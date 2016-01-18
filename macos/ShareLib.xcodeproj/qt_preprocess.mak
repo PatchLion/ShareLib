@@ -31,7 +31,7 @@ mocables: compiler_moc_header_make_all compiler_moc_source_make_all
 
 check: first
 
-compilers: ../temp/GeneratedFiles/qrc_shareimages.cpp ../temp/GeneratedFiles/moc_FacebookShare.cpp ../temp/GeneratedFiles/moc_FlickrShare.cpp ../temp/GeneratedFiles/moc_NetworkReplyTempObjManager.cpp\
+compilers: ../temp/GeneratedFiles/qrc_shareimages.cpp ../temp/GeneratedFiles/moc_FacebookShare.cpp ../temp/GeneratedFiles/moc_FlickrShare.cpp \
 	 ../temp/GeneratedFiles/moc_ShareFrameBase.cpp ../temp/GeneratedFiles/moc_TwitterShare.cpp ../temp/GeneratedFiles/moc_WebviewContainer.cpp\
 	 ../temp/GeneratedFiles/moc_AuthorizeWebviewBase.cpp ../temp/GeneratedFiles/moc_FaceBookAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_FacebookShareObject.cpp\
 	 ../temp/GeneratedFiles/moc_FlickrAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_FlickrShareObject.cpp ../temp/GeneratedFiles/moc_TwitterAuthorizeWebview.cpp\
@@ -47,9 +47,9 @@ compiler_rcc_clean:
 		../Resources/success.png
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/rcc -name shareimages ../shareimages.qrc -o ../temp/GeneratedFiles/qrc_shareimages.cpp
 
-compiler_moc_header_make_all: ../temp/GeneratedFiles/moc_FacebookShare.cpp ../temp/GeneratedFiles/moc_FlickrShare.cpp ../temp/GeneratedFiles/moc_NetworkReplyTempObjManager.cpp ../temp/GeneratedFiles/moc_ShareFrameBase.cpp ../temp/GeneratedFiles/moc_TwitterShare.cpp ../temp/GeneratedFiles/moc_WebviewContainer.cpp ../temp/GeneratedFiles/moc_AuthorizeWebviewBase.cpp ../temp/GeneratedFiles/moc_FaceBookAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_FacebookShareObject.cpp ../temp/GeneratedFiles/moc_FlickrAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_FlickrShareObject.cpp ../temp/GeneratedFiles/moc_TwitterAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_TwitterShareObject.cpp
+compiler_moc_header_make_all: ../temp/GeneratedFiles/moc_FacebookShare.cpp ../temp/GeneratedFiles/moc_FlickrShare.cpp ../temp/GeneratedFiles/moc_ShareFrameBase.cpp ../temp/GeneratedFiles/moc_TwitterShare.cpp ../temp/GeneratedFiles/moc_WebviewContainer.cpp ../temp/GeneratedFiles/moc_AuthorizeWebviewBase.cpp ../temp/GeneratedFiles/moc_FaceBookAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_FacebookShareObject.cpp ../temp/GeneratedFiles/moc_FlickrAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_FlickrShareObject.cpp ../temp/GeneratedFiles/moc_TwitterAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_TwitterShareObject.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) ../temp/GeneratedFiles/moc_FacebookShare.cpp ../temp/GeneratedFiles/moc_FlickrShare.cpp ../temp/GeneratedFiles/moc_NetworkReplyTempObjManager.cpp ../temp/GeneratedFiles/moc_ShareFrameBase.cpp ../temp/GeneratedFiles/moc_TwitterShare.cpp ../temp/GeneratedFiles/moc_WebviewContainer.cpp ../temp/GeneratedFiles/moc_AuthorizeWebviewBase.cpp ../temp/GeneratedFiles/moc_FaceBookAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_FacebookShareObject.cpp ../temp/GeneratedFiles/moc_FlickrAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_FlickrShareObject.cpp ../temp/GeneratedFiles/moc_TwitterAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_TwitterShareObject.cpp
+	-$(DEL_FILE) ../temp/GeneratedFiles/moc_FacebookShare.cpp ../temp/GeneratedFiles/moc_FlickrShare.cpp ../temp/GeneratedFiles/moc_ShareFrameBase.cpp ../temp/GeneratedFiles/moc_TwitterShare.cpp ../temp/GeneratedFiles/moc_WebviewContainer.cpp ../temp/GeneratedFiles/moc_AuthorizeWebviewBase.cpp ../temp/GeneratedFiles/moc_FaceBookAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_FacebookShareObject.cpp ../temp/GeneratedFiles/moc_FlickrAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_FlickrShareObject.cpp ../temp/GeneratedFiles/moc_TwitterAuthorizeWebview.cpp ../temp/GeneratedFiles/moc_TwitterShareObject.cpp
 ../temp/GeneratedFiles/moc_FacebookShare.cpp: ../Include/ShareMacroDefine.h \
 		../Include/IWebviewStyle.h \
 		../Include/FacebookShare.h
@@ -60,12 +60,8 @@ compiler_moc_header_clean:
 		../Include/FlickrShare.h
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../Include/FlickrShare.h -o ../temp/GeneratedFiles/moc_FlickrShare.cpp
 
-../temp/GeneratedFiles/moc_NetworkReplyTempObjManager.cpp: ../Include/NetworkReplyTempObjManager.h
-	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../Include/NetworkReplyTempObjManager.h -o ../temp/GeneratedFiles/moc_NetworkReplyTempObjManager.cpp
-
 ../temp/GeneratedFiles/moc_ShareFrameBase.cpp: ../Include/ShareMacroDefine.h \
 		../Include/ShareStructDefine.h \
-		../Include/NetworkReplyTempObjManager.h \
 		../Include/ShareFrameBase.h
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../Include/ShareFrameBase.h -o ../temp/GeneratedFiles/moc_ShareFrameBase.cpp
 
@@ -80,46 +76,39 @@ compiler_moc_header_clean:
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../Include/WebviewContainer.h -o ../temp/GeneratedFiles/moc_WebviewContainer.cpp
 
 ../temp/GeneratedFiles/moc_AuthorizeWebviewBase.cpp: ../Include/ShareMacroDefine.h \
-		../Include/NetworkReplyTempObjManager.h \
 		../src/AuthorizeWebviewBase.h
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../src/AuthorizeWebviewBase.h -o ../temp/GeneratedFiles/moc_AuthorizeWebviewBase.cpp
 
 ../temp/GeneratedFiles/moc_FaceBookAuthorizeWebview.cpp: ../Include/ShareMacroDefine.h \
 		../src/AuthorizeWebviewBase.h \
-		../Include/NetworkReplyTempObjManager.h \
 		../src/FaceBookAuthorizeWebview.h
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../src/FaceBookAuthorizeWebview.h -o ../temp/GeneratedFiles/moc_FaceBookAuthorizeWebview.cpp
 
 ../temp/GeneratedFiles/moc_FacebookShareObject.cpp: ../Include/ShareFrameBase.h \
 		../Include/ShareMacroDefine.h \
 		../Include/ShareStructDefine.h \
-		../Include/NetworkReplyTempObjManager.h \
 		../src/FacebookShareObject.h
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../src/FacebookShareObject.h -o ../temp/GeneratedFiles/moc_FacebookShareObject.cpp
 
 ../temp/GeneratedFiles/moc_FlickrAuthorizeWebview.cpp: ../Include/ShareMacroDefine.h \
 		../src/AuthorizeWebviewBase.h \
-		../Include/NetworkReplyTempObjManager.h \
 		../src/FlickrAuthorizeWebview.h
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../src/FlickrAuthorizeWebview.h -o ../temp/GeneratedFiles/moc_FlickrAuthorizeWebview.cpp
 
 ../temp/GeneratedFiles/moc_FlickrShareObject.cpp: ../Include/ShareFrameBase.h \
 		../Include/ShareMacroDefine.h \
 		../Include/ShareStructDefine.h \
-		../Include/NetworkReplyTempObjManager.h \
 		../src/FlickrShareObject.h
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../src/FlickrShareObject.h -o ../temp/GeneratedFiles/moc_FlickrShareObject.cpp
 
 ../temp/GeneratedFiles/moc_TwitterAuthorizeWebview.cpp: ../Include/ShareMacroDefine.h \
 		../src/AuthorizeWebviewBase.h \
-		../Include/NetworkReplyTempObjManager.h \
 		../src/TwitterAuthorizeWebview.h
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../src/TwitterAuthorizeWebview.h -o ../temp/GeneratedFiles/moc_TwitterAuthorizeWebview.cpp
 
 ../temp/GeneratedFiles/moc_TwitterShareObject.cpp: ../Include/ShareFrameBase.h \
 		../Include/ShareMacroDefine.h \
 		../Include/ShareStructDefine.h \
-		../Include/NetworkReplyTempObjManager.h \
 		../src/TwitterShareObject.h
 	/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/mkspecs/macx-clang -I/Volumes/Mac/Users/new/work_sources/ShareLib/macos -I/Volumes/Mac/Users/new/work_sources/ShareLib/Include -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtGui.framework/Headers -I/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib/QtCore.framework/Headers -F/Users/fotor-desktop/Qt5.3.2/5.3/clang_64/lib ../src/TwitterShareObject.h -o ../temp/GeneratedFiles/moc_TwitterShareObject.cpp
 

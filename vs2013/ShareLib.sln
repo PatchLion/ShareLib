@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShareLib", "ShareLib.vcxproj", "{73DDD2E1-C0E7-36D7-AE1E-D5E9784429D5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShareTest", "..\test\ShareTest_vs2013Qt5.vcxproj", "{3DB29CDF-712A-4A67-8748-C79235A5CE30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,14 @@ Global
 		{73DDD2E1-C0E7-36D7-AE1E-D5E9784429D5}.Release|Win32.Build.0 = Release|Win32
 		{73DDD2E1-C0E7-36D7-AE1E-D5E9784429D5}.Release|x64.ActiveCfg = Release|x64
 		{73DDD2E1-C0E7-36D7-AE1E-D5E9784429D5}.Release|x64.Build.0 = Release|x64
+		{3DB29CDF-712A-4A67-8748-C79235A5CE30}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3DB29CDF-712A-4A67-8748-C79235A5CE30}.Debug|Win32.Build.0 = Debug|Win32
+		{3DB29CDF-712A-4A67-8748-C79235A5CE30}.Debug|x64.ActiveCfg = Debug|x64
+		{3DB29CDF-712A-4A67-8748-C79235A5CE30}.Debug|x64.Build.0 = Debug|x64
+		{3DB29CDF-712A-4A67-8748-C79235A5CE30}.Release|Win32.ActiveCfg = Release|Win32
+		{3DB29CDF-712A-4A67-8748-C79235A5CE30}.Release|Win32.Build.0 = Release|Win32
+		{3DB29CDF-712A-4A67-8748-C79235A5CE30}.Release|x64.ActiveCfg = Release|x64
+		{3DB29CDF-712A-4A67-8748-C79235A5CE30}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

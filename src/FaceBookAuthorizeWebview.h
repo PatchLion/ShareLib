@@ -14,7 +14,7 @@
 
 #include "ShareMacroDefine.h"
 #include "AuthorizeWebviewBase.h"
-
+#include <QtCore/QTimer>
 class CWebviewContainer;
 class CFaceBookAuthorizeWebview : public CAuthorizeWebviewBase
 {   
@@ -56,7 +56,8 @@ protected slots :
 	//页面加载进度
 	virtual void onPageLoadProcess(int process);
 
-
+    //
+    void onLoadUrlTimeout();
 signals:
 	//接收到Token
 	void tokenReceived();
@@ -67,6 +68,7 @@ signals:
 private:
 	const QString				m_strClientID;						//客户端ID
 
+    QTimer                              m_loadUrlTimer;
 	QString						m_strCancelUrl;						//取消URL
 	QString						m_strTokenKey;						//获取到的TokenKey
 	uint								m_nExpiresTimeStamp;			//Token有效时间戳

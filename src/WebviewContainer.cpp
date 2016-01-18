@@ -2,6 +2,8 @@
 #include <QtCore/QTimer>
 #include "SharePublicFuncDefine.h"
 #include "ShareMacroDefine.h"
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtWebKitWidgets/QWebPage>
 
 CWebviewContainer::CWebviewContainer(QWidget* pParent)
 : QWebView(pParent)

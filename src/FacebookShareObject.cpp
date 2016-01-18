@@ -1,9 +1,9 @@
 #include "FacebookShareObject.h"
 #include "ShareStructDefine.h"
 #include "SharePublicFuncDefine.h"
-#include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QtCore/QFile>
+#include <QtCore/QTimer>
 
 CFacebookShareObject::CFacebookShareObject( QObject *parent/*=0*/ )
 	: CShareFrameBase(parent)
@@ -17,21 +17,17 @@ CFacebookShareObject::~CFacebookShareObject()
 
 void CFacebookShareObject::refreshAlbumList()
 {
-	if (!networkAccessManager())
-	{
-		emit albumsInfoRefreshFinished(false, ShareLibrary::MapAlbumInfo());
-		return;
-	}
-
 	QString getAlbumUrl = QString("https://graph.facebook.com/v2.3/me/albums?%1").arg(m_strTokenKey);
 
 	QNetworkRequest request = ShareLibrary::createSSLRequest(getAlbumUrl);
 
-	QNetworkReply* pTempReply = networkAccessManager()->get(request);
+	QNetworkReply* pTempReply = networkAccessManager().get(request);
 
 	if (pTempReply)
 	{
-		replyTempObjectManager().addTempReply(pTempReply);
+		pTempReply->setParent(&networkAccessManager());
+		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+		//replyTempObjectManager().addTempReply(pTempReply);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedAlbum()));
 	}
 	else
@@ -44,28 +40,18 @@ void CFacebookShareObject::onReplayFinishedAlbum()
 {
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 
+	ShareLibrary::MapAlbumInfo mapAlbumInfo;
+	bool bSuccess = false;
 	if (rep)
 	{
-		ShareLibrary::MapAlbumInfo mapAlbumInfo;
+		
 		if (QNetworkReply::NoError == rep->error())
 		{
-			const bool bSuc = ShareLibrary::readFacebookAlbumsInfoByByteArray(rep->readAll(), mapAlbumInfo);
-
-			if (bSuc)
-			{
-				emit albumsInfoRefreshFinished(true, mapAlbumInfo);
-			}
-			else
-			{
-				emit albumsInfoRefreshFinished(false, mapAlbumInfo);
-			}
+			bSuccess = ShareLibrary::readFacebookAlbumsInfoByByteArray(rep->readAll(), mapAlbumInfo);
 		}
-		else
-		{
-			emit albumsInfoRefreshFinished(false, mapAlbumInfo);
-		}
-
 	}
+
+	emit albumsInfoRefreshFinished(bSuccess, mapAlbumInfo);
 }
 
 void CFacebookShareObject::onReplayFinishedUpload()
@@ -74,7 +60,8 @@ void CFacebookShareObject::onReplayFinishedUpload()
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 	if (rep)
 	{
-		if (QNetworkReply::NoError == rep->error())
+		QNetworkReply::NetworkError errorCode = rep->error();
+		if (QNetworkReply::NoError == errorCode)
 		{
 			QString all = QString::fromUtf8(rep->readAll());
 
@@ -90,19 +77,37 @@ void CFacebookShareObject::onReplayFinishedUpload()
 		}
 		else
 		{
-			emit shareFinished(false, tr("Request error code: %1", "ShareLib").arg(rep->error()));
+			switch (errorCode)
+			{
+			case QNetworkReply::OperationCanceledError:
+			{
+				if (!isUserCancel())
+				{
+					emit shareFinished(false, tr("Request time out!", "ShareLib"));
+				}
+				else
+				{
+					emit shareFinished(false, tr("Cancelled by user!", "ShareLib"));
+				}		
+			}
+				break;
+
+			default:
+			{
+				emit shareFinished(false, tr("Request error code: %1", "ShareLib").arg(rep->error()));
+			}
+			break;
+			}
 		}
+	}
+	else
+	{
+		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
 	}
 }
 
 bool CFacebookShareObject::shareToFacebook(const QString& strDescriptionStr, const QString& strAlbumsStr, const QString& strFilePath)
 {
-	if (!networkAccessManager())
-	{
-		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
-		return false;
-	}
-
 	QFile file(strFilePath);
 	
 	if (file.open(QIODevice::ReadOnly))
@@ -143,11 +148,13 @@ bool CFacebookShareObject::shareToFacebook(const QString& strDescriptionStr, con
 		request.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(contentType));
 		request.setHeader(QNetworkRequest::ContentLengthHeader, QVariant(QString::number(data.size())));
 
-		QNetworkReply* pTempReply = networkAccessManager()->post(request, data);
+		QNetworkReply* pTempReply = networkAccessManager().post(request, data);
 
 		if (pTempReply)
 		{
-			replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
+			pTempReply->setParent(&networkAccessManager());
+			QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+			//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
 			connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedUpload()));
 
 			return true;

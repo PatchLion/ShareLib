@@ -7,19 +7,19 @@
         <location filename="../src/AuthorizeWebviewBase.cpp" line="101"/>
         <source>Loading authorization page......</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Autorisierungsseite laden…</translation>
     </message>
     <message>
         <location filename="../src/AuthorizeWebviewBase.cpp" line="109"/>
         <source>Loading...... %1%</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Laden……%1%</translation>
     </message>
     <message>
         <location filename="../src/AuthorizeWebviewBase.cpp" line="113"/>
         <source>Successfully authorized!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Erfolgreich autorisiert!</translation>
     </message>
 </context>
 <context>
@@ -28,74 +28,87 @@
         <location filename="../src/FacebookShareObject.cpp" line="88"/>
         <source>Return error from Facebook!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Fehler zurückgegeben von Facebook！</translation>
     </message>
     <message>
-        <location filename="../src/FacebookShareObject.cpp" line="93"/>
+        <location filename="../src/FacebookShareObject.cpp" line="98"/>
+        <source>Request time out!</source>
+        <comment>ShareLib</comment>
+        <translation>Auszeit!</translation>
+    </message>
+    <message>
+        <location filename="../src/FacebookShareObject.cpp" line="103"/>
         <source>Request error code: %1</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Anfrage-Fehlercode: %1</translation>
     </message>
     <message>
-        <location filename="../src/FacebookShareObject.cpp" line="102"/>
+        <location filename="../src/FacebookShareObject.cpp" line="115"/>
         <source>Inner problem!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Systemfehler！</translation>
     </message>
     <message>
-        <location filename="../src/FacebookShareObject.cpp" line="157"/>
+        <location filename="../src/FacebookShareObject.cpp" line="170"/>
         <source>Failed to create network request!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Netzwerkanfrage erstellen！</translation>
     </message>
     <message>
-        <location filename="../src/FacebookShareObject.cpp" line="162"/>
+        <location filename="../src/FacebookShareObject.cpp" line="175"/>
         <source>Can not open the image file!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Konnte die Datei nicht öffnen！</translation>
     </message>
 </context>
 <context>
     <name>CFlickrShareObject</name>
     <message>
         <location filename="../src/FlickrShareObject.cpp" line="94"/>
-        <location filename="../src/FlickrShareObject.cpp" line="315"/>
+        <location filename="../src/FlickrShareObject.cpp" line="328"/>
         <source>Return error from Flickr!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Fehler zurückgegeben von Flickr！</translation>
     </message>
     <message>
-        <location filename="../src/FlickrShareObject.cpp" line="99"/>
-        <location filename="../src/FlickrShareObject.cpp" line="320"/>
+        <location filename="../src/FlickrShareObject.cpp" line="104"/>
+        <location filename="../src/FlickrShareObject.cpp" line="338"/>
+        <source>Request time out!</source>
+        <comment>ShareLib</comment>
+        <translation>Auszeit!</translation>
+    </message>
+    <message>
+        <location filename="../src/FlickrShareObject.cpp" line="109"/>
+        <location filename="../src/FlickrShareObject.cpp" line="343"/>
         <source>Request error code: %1</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Anfrage-Fehlercode: %1</translation>
     </message>
     <message>
-        <location filename="../src/FlickrShareObject.cpp" line="108"/>
-        <location filename="../src/FlickrShareObject.cpp" line="240"/>
+        <location filename="../src/FlickrShareObject.cpp" line="121"/>
+        <location filename="../src/FlickrShareObject.cpp" line="253"/>
         <source>Inner problem!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Systemfehler！</translation>
     </message>
     <message>
-        <location filename="../src/FlickrShareObject.cpp" line="195"/>
-        <location filename="../src/FlickrShareObject.cpp" line="293"/>
+        <location filename="../src/FlickrShareObject.cpp" line="208"/>
+        <location filename="../src/FlickrShareObject.cpp" line="306"/>
         <source>Failed to create network request!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Netzwerkanfrage erstellen！</translation>
     </message>
     <message>
-        <location filename="../src/FlickrShareObject.cpp" line="200"/>
+        <location filename="../src/FlickrShareObject.cpp" line="213"/>
         <source>Can not open the image file!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Konnte die Datei nicht öffnen！</translation>
     </message>
     <message>
-        <location filename="../src/FlickrShareObject.cpp" line="219"/>
+        <location filename="../src/FlickrShareObject.cpp" line="232"/>
         <source>You must select one album!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Sie müssen ein Album auszuwählen！</translation>
     </message>
 </context>
 <context>
@@ -104,13 +117,13 @@
         <location filename="../src/ShareFrameBase.cpp" line="25"/>
         <source>Invalid parameter!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Ungültiger Parameter!</translation>
     </message>
     <message>
         <location filename="../src/ShareFrameBase.cpp" line="31"/>
         <source>Application error!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungsfehler!</translation>
     </message>
 </context>
 <context>
@@ -119,19 +132,25 @@
         <location filename="../src/TwitterShareObject.cpp" line="90"/>
         <source>Failed to create network request!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Netzwerkanfrage erstellen！</translation>
     </message>
     <message>
         <location filename="../src/TwitterShareObject.cpp" line="108"/>
         <source>Return error from Twitter!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Fehler zurückgegeben von Twitter！</translation>
     </message>
     <message>
-        <location filename="../src/TwitterShareObject.cpp" line="117"/>
+        <location filename="../src/TwitterShareObject.cpp" line="122"/>
+        <source>Request time out!</source>
+        <comment>ShareLib</comment>
+        <translation>Auszeit!</translation>
+    </message>
+    <message>
+        <location filename="../src/TwitterShareObject.cpp" line="127"/>
         <source>Request error code: %1</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Anfrage-Fehlercode: %1</translation>
     </message>
 </context>
 <context>
@@ -139,80 +158,80 @@
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="194"/>
         <source>Public</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffentlichkeit</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="200"/>
         <source>Friend</source>
-        <translation type="unfinished"></translation>
+        <translation>Freund</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="206"/>
         <source>Family</source>
-        <translation type="unfinished"></translation>
+        <translation>Familie</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="212"/>
         <source>Friend and Family</source>
-        <translation type="unfinished"></translation>
+        <translation>Freund und Familie</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="218"/>
         <source>Privacy</source>
-        <translation type="unfinished"></translation>
+        <translation>Privatleben</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="224"/>
         <source>Unknown privacy</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannt</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="415"/>
         <source>Success!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Erfolg!</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="416"/>
         <source>Time out!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Auszeit!</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="417"/>
         <source>SSL Error!!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>SSL-Fehler!</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="418"/>
         <source>Invalid URL!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Ungültige URL!</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="419"/>
         <source>Failed to load page!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Verbindung nicht möglich!</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="420"/>
         <source>Failed to authorize!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Benutzer ist nicht authorisiert!</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="421"/>
         <source>User cancel!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Benutzer abgebrochen!</translation>
     </message>
     <message>
         <location filename="../src/SharePublicFuncDefine.cpp" line="422"/>
         <source>Unknown problem!</source>
         <comment>ShareLib</comment>
-        <translation type="unfinished"></translation>
+        <translation>Unbekanntes problem！</translation>
     </message>
 </context>
 </TS>

@@ -1,11 +1,11 @@
 #include "FlickrAuthorizeWebview.h"
 #include "SharePublicFuncDefine.h"
+#include "ShareMacroDefine.h"
 #include <QtCore/QDateTime>
 #include <QtCore/QDebug>
 #include <QtCore/QCryptographicHash>
 #include <QtNetwork/QNetworkReply>
-#include <QtNetwork/QNetworkAccessManager>
-#include "qsingleton.h"
+#include <QtCore/QTimer>
 
 CFlickrAuthorizeWebview::CFlickrAuthorizeWebview(const QString& secret, const QString& apiKey, QWidget *parent)
 : CAuthorizeWebviewBase(parent)
@@ -56,11 +56,13 @@ void CFlickrAuthorizeWebview::startGetTokenByForb()
 
 	QNetworkRequest request = ShareLibrary::createSSLRequest(flickrUrl);
 
-	QNetworkReply* pTempReply = Singleton<QNetworkAccessManager>::instance().get(request);
+	QNetworkReply* pTempReply = networkManager().get(request);
 
 	if (pTempReply)
 	{
-		replyTempObjectManager().addTempReply(pTempReply);
+		pTempReply->setParent(&networkManager());
+		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+		//replyTempObjectManager().addTempReply(pTempReply);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedGetToken()));
 	}
 	else
@@ -75,7 +77,8 @@ void CFlickrAuthorizeWebview::onReplayFinishedGetToken()
 
 	if (rep)
 	{
-		if (QNetworkReply::NoError == rep->error())
+		QNetworkReply::NetworkError errorCode = rep->error();
+		if (QNetworkReply::NoError == errorCode)
 		{
 			QString all = QString::fromUtf8(rep->readAll());
 
@@ -100,7 +103,21 @@ void CFlickrAuthorizeWebview::onReplayFinishedGetToken()
 			}
 			else
 			{
-				onPageLoadFinished(ShareLibrary::Result_FailedToAuth);
+				if (QNetworkReply::OperationCanceledError == errorCode)
+				{
+					if (isUserCancel())
+					{
+						onPageLoadFinished(ShareLibrary::Result_UserCancel);
+					}
+					else
+					{
+						onPageLoadFinished(ShareLibrary::Result_TimeOut);
+					}
+				}
+				else
+				{
+					onPageLoadFinished(ShareLibrary::Result_FailedToAuth);
+				}
 			}
 		}
 		else
@@ -174,10 +191,12 @@ void CFlickrAuthorizeWebview::startToGetFrob()
 	//
 
 	QNetworkRequest request = ShareLibrary::createSSLRequest(flickrUrl);
-	QNetworkReply* pTempReply = Singleton<QNetworkAccessManager>::instance().get(request);
+	QNetworkReply* pTempReply = networkManager().get(request);
 	if (pTempReply)
 	{
-		replyTempObjectManager().addTempReply(pTempReply);
+		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+		pTempReply->setParent(&networkManager());
+		//replyTempObjectManager().addTempReply(pTempReply);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedGetFrob()));
 	}
 	else
@@ -190,30 +209,53 @@ void CFlickrAuthorizeWebview::onReplayFinishedGetFrob()
 {
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 
-	if (rep && rep->error() == QNetworkReply::NoError)
+	if (rep)
 	{
-		QString all = QString::fromUtf8(rep->readAll());
-
-		if (all.contains("frob"))
+		QNetworkReply::NetworkError errorCode = rep->error();
+		if (errorCode == QNetworkReply::NoError)
 		{
-			int fisrt = all.indexOf("frob");
-			int last = all.lastIndexOf("frob");
-			QString frob1 = all.mid(fisrt + 5, (last - 2) - (fisrt + 5));
-			m_strForb = frob1;
+			QString all = QString::fromUtf8(rep->readAll());
 
-			const QString url = authorizationUrl();
-			
-			loadUrl(url);
+			if (all.contains("frob"))
+			{
+				int fisrt = all.indexOf("frob");
+				int last = all.lastIndexOf("frob");
+				QString frob1 = all.mid(fisrt + 5, (last - 2) - (fisrt + 5));
+				m_strForb = frob1;
+
+				const QString url = authorizationUrl();
+
+				loadUrl(url);
+			}
+			else
+			{
+				onPageLoadFinished(ShareLibrary::Result_FailedToAuth);
+			}
 		}
 		else
 		{
-			onPageLoadFinished(ShareLibrary::Result_FailedToAuth);
+			if (QNetworkReply::OperationCanceledError == errorCode)
+			{
+				if (isUserCancel())
+				{
+					onPageLoadFinished(ShareLibrary::Result_UserCancel);
+				}
+				else
+				{
+					onPageLoadFinished(ShareLibrary::Result_TimeOut);
+				}
+			}
+			else
+			{
+				onPageLoadFinished(ShareLibrary::Result_FailedToAuth);
+			}
 		}
 	}
 	else
 	{
-		onPageLoadFinished(ShareLibrary::Result_FailedToAuth);
+		onPageLoadFinished(ShareLibrary::Result_OtherError);
 	}
+	
 }
 
 void CFlickrAuthorizeWebview::clearToken()

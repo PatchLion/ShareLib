@@ -1,9 +1,9 @@
 #include "FlickrShareObject.h"
 #include "ShareStructDefine.h"
 #include "SharePublicFuncDefine.h"
-#include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QtCore/QFile>
+#include <QtCore/QTimer>
 
 CFlickrShareObject::CFlickrShareObject(const QString& secret, const QString& apiKey, QObject *parent/*=0*/)
 	: CShareFrameBase(parent)
@@ -20,54 +20,40 @@ CFlickrShareObject::~CFlickrShareObject()
 
 void CFlickrShareObject::refreshAlbumList()
 {
-	if (networkAccessManager())
-	{
 		//url
 		QString strGetAlbumUrl = QString("https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=%1&user_id=%2").arg(m_strAPIKey).arg(m_strUserID);
 
 		QNetworkRequest request = ShareLibrary::createSSLRequest(strGetAlbumUrl);
 
-		QNetworkReply* pTempReply = networkAccessManager()->get(request);
+		QNetworkReply* pTempReply = networkAccessManager().get(request);
 
 		if (pTempReply)
 		{
-			replyTempObjectManager().addTempReply(pTempReply);
+			pTempReply->setParent(&networkAccessManager());
+			QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+			//replyTempObjectManager().addTempReply(pTempReply);
 			connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedAlbum()));
 		}
 		else
 		{
 			emit albumsInfoRefreshFinished(false, ShareLibrary::MapAlbumInfo());
 		}
-	}
-
 }
 
 void CFlickrShareObject::onReplayFinishedAlbum()
 {
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 
+	ShareLibrary::MapAlbumInfo mapAlbumInfo;
+	bool bSuccess = false;
 	if (rep)
 	{
-		ShareLibrary::MapAlbumInfo mapAlbumInfo;
-
 		if (QNetworkReply::NoError == rep->error())
 		{
-			const bool bSuc = ShareLibrary::readFlickrAlbumsInfoByByteArray(rep->readAll(), mapAlbumInfo);
-
-			if (bSuc)
-			{
-				emit albumsInfoRefreshFinished(true, mapAlbumInfo);
-			}
-			else
-			{
-				emit albumsInfoRefreshFinished(false, mapAlbumInfo);
-			}
-		}
-		else
-		{
-			emit albumsInfoRefreshFinished(false, mapAlbumInfo);
+			bSuccess = ShareLibrary::readFlickrAlbumsInfoByByteArray(rep->readAll(), mapAlbumInfo);
 		}
 	}
+	emit albumsInfoRefreshFinished(bSuccess, mapAlbumInfo);
 }
 
 
@@ -75,41 +61,59 @@ void CFlickrShareObject::onReplayFinishedUpload()
 {
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 
-	if (rep)
+	if (!rep)
 	{
-		if (QNetworkReply::NoError == rep->error())
-		{
-			QString all = QString::fromUtf8(rep->readAll());
+		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
+		return;
+	}
 
-			if (all.contains("photoid"))
-			{
-				int firstindex = all.indexOf("<photoid>");
-				int endindex = all.indexOf("</photoid>");
-				m_strCurrentPhotoID = all.mid(firstindex + 9, endindex - firstindex - 9);
-				startUploadPhotoToAlbum();
-			}
-			else
-			{
-				qWarning() << all;
-				emit shareFinished(false, tr("Return error from Flickr!", "ShareLib"));
-			}
+	QNetworkReply::NetworkError errorCode = rep->error();
+	if (QNetworkReply::NoError == errorCode)
+	{
+		QString all = QString::fromUtf8(rep->readAll());
+
+		if (all.contains("photoid"))
+		{
+			int firstindex = all.indexOf("<photoid>");
+			int endindex = all.indexOf("</photoid>");
+			m_strCurrentPhotoID = all.mid(firstindex + 9, endindex - firstindex - 9);
+			startUploadPhotoToAlbum();
 		}
 		else
 		{
-			emit shareFinished(false, tr("Request error code: %1", "ShareLib").arg(rep->error()));
+			qWarning() << all;
+			emit shareFinished(false, tr("Return error from Flickr!", "ShareLib"));
 		}
 	}
+	else
+	{
+		switch (errorCode)
+		{
+		case QNetworkReply::OperationCanceledError:
+		{
+			if (isUserCancel())
+			{
+				emit shareFinished(false, tr("Cancelled by user!", "ShareLib").arg(rep->error()));
+			}
+			else
+			{
+				emit shareFinished(false, tr("Request time out!", "ShareLib").arg(rep->error()));
+			}
+				
+		}
+		break;
+		default:
+		{
+			emit shareFinished(false, tr("Request error code: %1", "ShareLib").arg(rep->error()));
+		}
+		break;
+		}
+	}
+	
 }
 
 bool CFlickrShareObject::shareToFlickr(const QString& strTitle, const QString& strDescriptionStr, const QString& strAlbumsStr, const QString& strFilePath, int nPrivacy)
 {
-	if (!networkAccessManager())
-	{
-		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
-
-		return false;
-	}
-
 	m_strTempAlbumID = strAlbumsStr;
 
 	QFile file(strFilePath);
@@ -183,11 +187,13 @@ bool CFlickrShareObject::shareToFlickr(const QString& strTitle, const QString& s
 		request.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(contentType));
 		request.setHeader(QNetworkRequest::ContentLengthHeader, QVariant(QString::number(data.size())));
 
-		QNetworkReply* pTempReply = networkAccessManager()->post(request, data);
+		QNetworkReply* pTempReply = networkAccessManager().post(request, data);
 
 		if (pTempReply)
 		{
-			replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
+			pTempReply->setParent(&networkAccessManager());
+			QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+			//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
 			connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedUpload()));
 		}
 		else
@@ -235,7 +241,7 @@ void CFlickrShareObject::setTokenKey(const QString& tokenKey)
 
 void CFlickrShareObject::startUploadPhotoToAlbum()
 {
-	if (m_strCurrentPhotoID.isEmpty() || !networkAccessManager())
+	if (m_strCurrentPhotoID.isEmpty())
 	{
 		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
 		return;
@@ -281,11 +287,13 @@ void CFlickrShareObject::startUploadPhotoToAlbum()
 	request.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(contentType));
 	request.setHeader(QNetworkRequest::ContentLengthHeader, QVariant(QString::number(data.size())));
 
-	QNetworkReply* pTempReply = networkAccessManager()->post(request, data);
+	QNetworkReply* pTempReply = networkAccessManager().post(request, data);
 
 	if (pTempReply)
 	{
-		replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
+		pTempReply->setParent(&networkAccessManager());
+		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+		//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedTransform()));
 	}
 	else
@@ -298,28 +306,53 @@ void CFlickrShareObject::startUploadPhotoToAlbum()
 void CFlickrShareObject::onReplayFinishedTransform()
 {
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
-	if (rep)
+
+	if (!rep)
 	{
+		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
+		return;
+	}
 
-		if (QNetworkReply::NoError == rep->error())
+	if (QNetworkReply::NoError == rep->error())
+	{
+		QString all = QString::fromUtf8(rep->readAll());
+
+		if (all.contains("rsp stat=\"ok\""))
 		{
-			QString all = QString::fromUtf8(rep->readAll());
-
-			if (all.contains("rsp stat=\"ok\""))
-			{
-				emit shareFinished(true, "");
-			}
-			else
-			{
-				qWarning() << all;
-				emit shareFinished(false, tr("Return error from Flickr!", "ShareLib"));
-			}
+			emit shareFinished(true, "");
 		}
 		else
 		{
+			qWarning() << all;
+			emit shareFinished(false, tr("Return error from Flickr!", "ShareLib"));
+		}
+	}
+	else
+	{
+		QNetworkReply::NetworkError errorCode = rep->error();
+		switch (errorCode)
+		{
+		case QNetworkReply::OperationCanceledError:
+		{
+			if (!isUserCancel())
+			{
+				emit shareFinished(false, tr("Request time out!", "ShareLib"));
+			}
+			else
+			{
+				emit shareFinished(false, tr("Cancelled by user!", "ShareLib"));
+			}
+			
+		}
+		break;
+		default:
+		{
 			emit shareFinished(false, tr("Request error code: %1", "ShareLib").arg(rep->error()));
 		}
-		
+		break;
+		}
 	}
+
+
 }
 

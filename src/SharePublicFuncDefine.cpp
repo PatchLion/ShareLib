@@ -418,7 +418,7 @@ QString ShareLibrary::getPageLoadResultString(EPageLoadResult eResult)
 	case ShareLibrary::Result_InvaildURL:			return QObject::tr("Invalid URL!", "ShareLib");
 	case ShareLibrary::Result_OtherError:		return QObject::tr("Failed to load page!", "ShareLib");
 	case ShareLibrary::Result_FailedToAuth:	return QObject::tr("Failed to authorize!", "ShareLib");
-	case ShareLibrary::Result_UserCancel:		return QObject::tr("User cancel!", "ShareLib");
+	case ShareLibrary::Result_UserCancel:		return QObject::tr("Cancelled by user!", "ShareLib");
 	default:															return QObject::tr("Unknown problem!", "ShareLib");
 	}
 }

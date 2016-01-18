@@ -79,9 +79,9 @@ signals:
 private:
 	const QString											m_strClientID;	
 
-	QThread													*m_pShareThread;							//分享线程
+	QThread														*m_pShareThread;							//分享线程
 
-	CFacebookShareObject						*m_pShareObject;							//分享对象
+	CFacebookShareObject							*m_pShareObject;							//分享对象
 	CFaceBookAuthorizeWebview				*m_pAuthorizeWebview;				//授权网页窗体
 };
 #endif // FacebookShare_h__
