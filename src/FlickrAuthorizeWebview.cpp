@@ -6,7 +6,7 @@
 #include <QtCore/QCryptographicHash>
 #include <QtNetwork/QNetworkReply>
 #include <QtCore/QTimer>
-
+#include "sharefunmacro.h"
 CFlickrAuthorizeWebview::CFlickrAuthorizeWebview(const QString& secret, const QString& apiKey, QWidget *parent)
 : CAuthorizeWebviewBase(parent)
 , m_strSecret(secret)
@@ -61,7 +61,8 @@ void CFlickrAuthorizeWebview::startGetTokenByForb()
 	if (pTempReply)
 	{
 		pTempReply->setParent(&networkManager());
-		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+        //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+        START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		//replyTempObjectManager().addTempReply(pTempReply);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedGetToken()));
 	}
@@ -77,6 +78,7 @@ void CFlickrAuthorizeWebview::onReplayFinishedGetToken()
 
 	if (rep)
 	{
+        STOP_REPLY_TIMER(rep);
 		QNetworkReply::NetworkError errorCode = rep->error();
 		if (QNetworkReply::NoError == errorCode)
 		{
@@ -194,8 +196,9 @@ void CFlickrAuthorizeWebview::startToGetFrob()
 	QNetworkReply* pTempReply = networkManager().get(request);
 	if (pTempReply)
 	{
-		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+        //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
 		pTempReply->setParent(&networkManager());
+        START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		//replyTempObjectManager().addTempReply(pTempReply);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedGetFrob()));
 	}
@@ -211,6 +214,7 @@ void CFlickrAuthorizeWebview::onReplayFinishedGetFrob()
 
 	if (rep)
 	{
+        STOP_REPLY_TIMER(rep);
 		QNetworkReply::NetworkError errorCode = rep->error();
 		if (errorCode == QNetworkReply::NoError)
 		{

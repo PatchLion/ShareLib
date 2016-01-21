@@ -4,7 +4,7 @@
 #include <QtNetwork/QNetworkReply>
 #include <QtCore/QFile>
 #include <QtCore/QTimer>
-
+#include "sharefunmacro.h"
 CFlickrShareObject::CFlickrShareObject(const QString& secret, const QString& apiKey, QObject *parent/*=0*/)
 	: CShareFrameBase(parent)
 	, m_strAPIKey(apiKey)
@@ -30,7 +30,8 @@ void CFlickrShareObject::refreshAlbumList()
 		if (pTempReply)
 		{
 			pTempReply->setParent(&networkAccessManager());
-			QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+            START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
+            //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
 			//replyTempObjectManager().addTempReply(pTempReply);
 			connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedAlbum()));
 		}
@@ -48,10 +49,15 @@ void CFlickrShareObject::onReplayFinishedAlbum()
 	bool bSuccess = false;
 	if (rep)
 	{
+        STOP_REPLY_TIMER(rep);
 		if (QNetworkReply::NoError == rep->error())
 		{
 			bSuccess = ShareLibrary::readFlickrAlbumsInfoByByteArray(rep->readAll(), mapAlbumInfo);
 		}
+        else
+        {
+            qWarning() << "Flickr album reply: " << rep->errorString();
+        }
 	}
 	emit albumsInfoRefreshFinished(bSuccess, mapAlbumInfo);
 }
@@ -66,6 +72,8 @@ void CFlickrShareObject::onReplayFinishedUpload()
 		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
 		return;
 	}
+
+    STOP_REPLY_TIMER(rep);
 
 	QNetworkReply::NetworkError errorCode = rep->error();
 	if (QNetworkReply::NoError == errorCode)
@@ -192,7 +200,8 @@ bool CFlickrShareObject::shareToFlickr(const QString& strTitle, const QString& s
 		if (pTempReply)
 		{
 			pTempReply->setParent(&networkAccessManager());
-			QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+            START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
+            //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
 			//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
 			connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedUpload()));
 		}
@@ -292,7 +301,8 @@ void CFlickrShareObject::startUploadPhotoToAlbum()
 	if (pTempReply)
 	{
 		pTempReply->setParent(&networkAccessManager());
-		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+        //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+        START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedTransform()));
 	}
@@ -312,6 +322,8 @@ void CFlickrShareObject::onReplayFinishedTransform()
 		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
 		return;
 	}
+
+    STOP_REPLY_TIMER(rep);
 
 	if (QNetworkReply::NoError == rep->error())
 	{

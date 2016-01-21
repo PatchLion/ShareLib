@@ -6,7 +6,7 @@
 #include <QtNetwork/QNetworkReply>
 #include "TwitterShare.h"
 #include <QtCore/QTimer>
-
+#include "sharefunmacro.h"
 #define TWITTER_REQUEST_TOKEN_URL								"https://api.twitter.com/oauth/request_token"
 #define TWITTER_AUTHORIZE_URL											"https://api.twitter.com/oauth/authorize"
 #define TWITTER_ACCESS_TOKEN_URL									"https://api.twitter.com/oauth/access_token"
@@ -91,7 +91,8 @@ void CTwitterAuthorizeWebview::startRequestAccessToken(const QString& strPin)
 	if (pTempReply)
 	{
 		pTempReply->setParent(&networkManager());
-		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+        //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+        START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		//replyTempObjectManager().addTempReply(pTempReply);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedAccessToken()), Qt::UniqueConnection);
 	}
@@ -110,7 +111,10 @@ void CTwitterAuthorizeWebview::onReplayFinishedAccessToken()
 		return;
 	}
 
-	if (rep->error() == QNetworkReply::NoError)
+    STOP_REPLY_TIMER(rep);
+
+    QNetworkReply::NetworkError errocode = rep->error();
+    if (errocode == QNetworkReply::NoError)
 	{
 		const QByteArray response = rep->readAll();
 
@@ -132,14 +136,24 @@ void CTwitterAuthorizeWebview::onReplayFinishedAccessToken()
 	}
 	else
 	{
-		if (isUserCancel())
-		{
-			onPageLoadFinished(ShareLibrary::Result_UserCancel);
-		}
-		else
-		{
-			onPageLoadFinished(ShareLibrary::Result_TimeOut);
-		}
+        qWarning() << "Twitter request access token error: " << rep->errorString();
+
+        if (QNetworkReply::OperationCanceledError == errocode)
+        {
+            if (isUserCancel())
+            {
+                onPageLoadFinished(ShareLibrary::Result_UserCancel);
+            }
+            else
+            {
+                onPageLoadFinished(ShareLibrary::Result_TimeOut);
+            }
+        }
+        else
+        {
+            onPageLoadFinished(ShareLibrary::Result_FailedToAuth);
+        }
+
 	}
 }
 void CTwitterAuthorizeWebview::startToAuthorize()
@@ -169,7 +183,8 @@ void CTwitterAuthorizeWebview::startRequestOauthToken()
 	if (pTempReply)
 	{
 		pTempReply->setParent(&networkManager());
-		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+        START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
+        //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
 		//replyTempObjectManager().addTempReply(pTempReply);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedOauthToken()), Qt::UniqueConnection);
 	}
@@ -190,7 +205,10 @@ void CTwitterAuthorizeWebview::onReplayFinishedOauthToken()
 		return;
 	}
 
-	if (rep->error() == QNetworkReply::NoError)
+    STOP_REPLY_TIMER(rep);
+
+     QNetworkReply::NetworkError errocode = rep->error();
+    if (errocode == QNetworkReply::NoError)
 	{
 		const QByteArray response = rep->readAll();
 
@@ -209,14 +227,23 @@ void CTwitterAuthorizeWebview::onReplayFinishedOauthToken()
 	}
 	else
 	{
-		if (isUserCancel())
-		{
-			onPageLoadFinished(ShareLibrary::Result_UserCancel);
-		}
-		else
-		{
-			onPageLoadFinished(ShareLibrary::Result_TimeOut);
-		}
+        qWarning() << "Twitter request access token error: " << rep->errorString();
+
+        if (QNetworkReply::OperationCanceledError == errocode)
+        {
+            if (isUserCancel())
+            {
+                onPageLoadFinished(ShareLibrary::Result_UserCancel);
+            }
+            else
+            {
+                onPageLoadFinished(ShareLibrary::Result_TimeOut);
+            }
+        }
+        else
+        {
+            onPageLoadFinished(ShareLibrary::Result_FailedToAuth);
+        }
 	}
 }
 

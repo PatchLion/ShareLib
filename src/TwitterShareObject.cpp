@@ -6,7 +6,7 @@
 #include <QtNetwork/QHttpMultiPart>
 #include "TwitterShare.h"
 #include <QtCore/QTimer>
-
+#include "sharefunmacro.h"
 CTwitterShareObject::CTwitterShareObject(const QString& strConsumerKey, /*在twitter上申请的用户Key */ const QString& strConsumerSecret, /*在twitter上申请的用户秘钥 */ QObject *parent /*= 0*/)
 	: CShareFrameBase(parent)
 	, m_strConsumerKey(strConsumerKey)
@@ -74,7 +74,8 @@ bool CTwitterShareObject::shareToTwitter(const QString& strDescriptionStr, const
 	if (pTempReply)
 	{
 		pTempReply->setParent(&networkAccessManager());
-		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+        //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+        START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplyFinishedUpload()));
 		return true;
@@ -96,6 +97,8 @@ void CTwitterShareObject::onReplyFinishedUpload()
 		emit shareFinished(false, tr("Inner problem!", "ShareLib"));
 		return;
 	}
+
+    STOP_REPLY_TIMER(rep);
 
 	QNetworkReply::NetworkError errorCode = rep->error();
 	if (QNetworkReply::NoError == errorCode)

@@ -4,7 +4,7 @@
 #include <QtNetwork/QNetworkReply>
 #include <QtCore/QFile>
 #include <QtCore/QTimer>
-
+#include "sharefunmacro.h"
 CFacebookShareObject::CFacebookShareObject( QObject *parent/*=0*/ )
 	: CShareFrameBase(parent)
 {
@@ -26,8 +26,7 @@ void CFacebookShareObject::refreshAlbumList()
 	if (pTempReply)
 	{
 		pTempReply->setParent(&networkAccessManager());
-		QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
-		//replyTempObjectManager().addTempReply(pTempReply);
+        START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedAlbum()));
 	}
 	else
@@ -44,11 +43,16 @@ void CFacebookShareObject::onReplayFinishedAlbum()
 	bool bSuccess = false;
 	if (rep)
 	{
+        STOP_REPLY_TIMER(rep);
 		
 		if (QNetworkReply::NoError == rep->error())
 		{
 			bSuccess = ShareLibrary::readFacebookAlbumsInfoByByteArray(rep->readAll(), mapAlbumInfo);
 		}
+        else
+        {
+            qWarning() << "Facebook album reply: " << rep->errorString();
+        }
 	}
 
 	emit albumsInfoRefreshFinished(bSuccess, mapAlbumInfo);
@@ -60,6 +64,7 @@ void CFacebookShareObject::onReplayFinishedUpload()
 	QNetworkReply* rep = dynamic_cast<QNetworkReply*>(sender());
 	if (rep)
 	{
+        STOP_REPLY_TIMER(rep);
 		QNetworkReply::NetworkError errorCode = rep->error();
 		if (QNetworkReply::NoError == errorCode)
 		{
@@ -153,7 +158,7 @@ bool CFacebookShareObject::shareToFacebook(const QString& strDescriptionStr, con
 		if (pTempReply)
 		{
 			pTempReply->setParent(&networkAccessManager());
-			QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
+            START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 			//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
 			connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedUpload()));
 

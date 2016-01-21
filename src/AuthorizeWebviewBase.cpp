@@ -251,7 +251,7 @@ void CAuthorizeWebviewBase::onDelayClose()
 
 void CAuthorizeWebviewBase::startDelayClose()
 {
-	QTimer::singleShot(2000, this, SLOT(onDelayClose()));
+    QTimer::singleShot(1500, this, SLOT(onDelayClose()));
 }
 
 void CAuthorizeWebviewBase::setStatePixmap(ShareLibrary::EAuthorizePageState state, const QPixmap& pixmap)

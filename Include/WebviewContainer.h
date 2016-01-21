@@ -8,7 +8,8 @@
 #include "ShareMacroDefine.h"
 
 #ifdef Q_OS_MAC
-#include <QtWidgets/QMacCocoaViewContainer>
+//#include <QtWidgets/QMacCocoaViewContainer>
+#include "webviewinqt.h"
 #endif
 
 #ifdef Q_OS_WIN
@@ -30,7 +31,7 @@
 #include "IWebviewContainer.h"
 
 #ifdef Q_OS_MAC
-class CWebviewContainer : public QMacCocoaViewContainer, public IWebviewContainer
+class CWebviewContainer : public WebViewInQt, public IWebviewContainer
 #else //if Q_OS_WIN
 class CWebviewContainer : public QWebView, public IWebviewContainer
 #endif
@@ -48,7 +49,7 @@ public:
 
 	//加载Url
 	virtual void loadUrl(const QString& strURL);
-	virtual QString urlString() const;
+    virtual QString urlString() const;
 
 	//网页内容(去掉HTML标记)
 	virtual QString pagePlainText() const;
@@ -68,6 +69,14 @@ public slots:
     
     //加载超时
     void onLoadTimeOut();
+
+
+private slots:
+#ifdef Q_OS_MAC
+    void onPageLoadFinishMac(const QString &strUrl, const QString &strHtml);
+    void onPageLoadErrorMac();
+    void onPageUrlChangedMac(const QString &strUrl);
+#endif
 
 protected:
 	//开始计时器(如果已启动，则重置), nInterval周期(毫秒)
@@ -90,10 +99,15 @@ signals:
 	void pageLoadFinished(ShareLibrary::EPageLoadResult eResult);
 
 	//页面加载进度
-	void pageLoadProcess(int process);
+    void pageLoadProcess(int process);
 
 private:
 	QTimer		m_loadTimer;
+
+#ifdef Q_OS_MAC
+    QString     m_urlString;
+    QString     m_htmlString;
+#endif
 };
 
 #endif /* defined(__CWebviewContainer__) */

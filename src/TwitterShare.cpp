@@ -323,7 +323,7 @@ void CTwitterShare::releaseWebView()
 {
 	if (m_pAuthorizeWebview)
 	{
-        qDebug() << "Release facebook authorize webview!";
+        qDebug() << "Release twitter authorize webview!";
 		//disconnect(m_pAuthorizeWebview);
 		SAFE_DELETE_QBJECT(m_pAuthorizeWebview);
 	}

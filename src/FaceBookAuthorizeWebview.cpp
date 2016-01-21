@@ -7,7 +7,7 @@ CFaceBookAuthorizeWebview::CFaceBookAuthorizeWebview(const QString& clientID, QW
 , m_strClientID(clientID)
 {
     
-    m_loadUrlTimer.setInterval(DEFAULT_TIMEOUT_INTERVAL);
+    m_loadUrlTimer.setInterval(DEFAULT_TIMEOUT_INTERVAL * 2);
     
     connect(&m_loadUrlTimer, &QTimer::timeout, this, &CFaceBookAuthorizeWebview::onLoadUrlTimeout);
 }
@@ -26,6 +26,7 @@ void CFaceBookAuthorizeWebview::onLoadUrlTimeout()
 
 void CFaceBookAuthorizeWebview::onPageLoadFinished(ShareLibrary::EPageLoadResult eResult)
 {
+    m_loadUrlTimer.stop();
 	CAuthorizeWebviewBase::onPageLoadFinished(eResult);
 
 	if (ShareLibrary::Result_Success == eResult)

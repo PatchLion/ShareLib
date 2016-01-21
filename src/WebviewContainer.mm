@@ -1,50 +1,35 @@
 #include "WebviewContainer.h"
-
-#import <Cocoa/Cocoa.h>
-#import <WebKit/WebKit.h>
-#import <QtWidgets/QLayout>
-#import <QtCore/QDebug>
-#import "CNotifyWebView.h"
-
-
+#include <QtWidgets/QLayout>
+#include <QtCore/QDebug>
+#include <QtCore/QString>
+#include <WebKit/WebKit.h>
 CWebviewContainer::CWebviewContainer(QWidget *parent)
-: QMacCocoaViewContainer(0, parent)
+: WebViewInQt(0, parent)
 {
-    CNotifyWebView* webView = [[CNotifyWebView alloc] init];
-    [webView setContainer: this];
-    
-
-    setCocoaView(webView);
-    
     if (layout())
     {
         layout()->setSpacing(0);
         layout()->setMargin(0);
     }
-    
+
     setTimeOutInterval(DEFAULT_TIMEOUT_INTERVAL);
     
     m_loadTimer.setSingleShot(true);
     connect(&m_loadTimer, &QTimer::timeout, this, &CWebviewContainer::onLoadTimeOut);
+
+    connect(this, &CWebviewContainer::signalLoadFinish, this, &CWebviewContainer::onPageLoadFinishMac);
+    connect(this, &CWebviewContainer::signalLoadError, this, &CWebviewContainer::onPageLoadErrorMac);
+    connect(this, &CWebviewContainer::signalUrlChanged, this, &CWebviewContainer::onPageUrlChangedMac);
 }
 
 CWebviewContainer::~CWebviewContainer()
 {
-    qDebug() << "CWebviewContainer release!";
-    id webView = (id)cocoaView();
-    bool bSuc = [webView isMemberOfClass: [CNotifyWebView class]] ;
-    if(bSuc)
-    {
-        qDebug() << "webView setContainer = 0!";
-        [webView setContainer: 0];
-        [webView release];
-    }
-    setCocoaView(0);
-    qDebug() << "CWebviewContainer setCocoaView = 0!";
+
 }
 
 QString CWebviewContainer::pagePlainText() const
 {
+    /*
     id webView = (id)cocoaView();
     bool bSuc = [webView isMemberOfClass: [CNotifyWebView class]] ;
     if(bSuc)
@@ -52,18 +37,19 @@ QString CWebviewContainer::pagePlainText() const
         WebDataSource *source = [[webView mainFrame] dataSource];
         NSData *data = [source data];
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
+
         QByteArray tempPlainText;
         return tempPlainText.fromPercentEncoding([str UTF8String]);
     }
     else
     {
         return "";
-    }
-    
+    }*/
+    return m_htmlString;
 }
 QString CWebviewContainer::urlString() const
 {
+    /*
     id webView = (id)cocoaView();
     bool bSuc = [webView isMemberOfClass: [CNotifyWebView class]] ;
     if(bSuc)
@@ -77,18 +63,15 @@ QString CWebviewContainer::urlString() const
     else
     {
         return "";
-    }
+    }*/
+    return m_urlString;
 }
 
 void CWebviewContainer::loadUrl(const QString& strUrl)
 {
-    id webView = (id)cocoaView();
-    bool bSuc = [webView isMemberOfClass: [CNotifyWebView class]] ;
-    if(bSuc)
-    {
-        [webView setMainFrameURL: [NSString stringWithUTF8String: strUrl.toUtf8().data()]];
-        NSLog(@"CWebviewContainer::setUrl: %s", strUrl.toUtf8().data());
-    }
+    qDebug() << "webviewcontainer[load]: " << strUrl;
+    m_urlString = strUrl;
+    WebViewInQt::loadRequest(strUrl);
 }
 
 void CWebviewContainer::onPageLoadFinished(ShareLibrary::EPageLoadResult eResult)
@@ -119,8 +102,6 @@ void CWebviewContainer::clearCookie()
 }
 void CWebviewContainer::onLoadTimeOut()
 {
-    stopLoadTimer();
-    
     onPageLoadFinished(ShareLibrary::Result_TimeOut);
 }
 
@@ -152,17 +133,30 @@ void CWebviewContainer::onLoadFinished(bool bOK)
     {
         onPageLoadFinished(ShareLibrary::Result_Success);
     }
-    /*
-     else
-     {
-     onPageLoadFinished(ShareLibrary::Result_OtherError);
-     }
-    
-    if (page() && page()->mainFrame())
+    else
     {
-        page()->mainFrame()->setScrollBarValue(Qt::Vertical, page()->mainFrame()->scrollBarMinimum(Qt::Vertical));
-        page()->mainFrame()->setScrollBarValue(Qt::Horizontal, page()->mainFrame()->scrollBarMinimum(Qt::Horizontal));
-        //page()->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
-        //page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
-    }*/
+        onPageLoadFinished(ShareLibrary::Result_OtherError);
+    }
+}
+void CWebviewContainer::onPageLoadFinishMac(const QString &strUrl, const QString &strHtml)
+{
+    qDebug() << "webviewcontainer[finished]: " << strUrl;
+    m_urlString = strUrl;
+    m_htmlString = strHtml;
+    onLoadFinished(true);
+}
+
+void CWebviewContainer::onPageLoadErrorMac()
+{
+    /*
+    qWarning() << "webviewcontainer[error]!";
+    onLoadFinished(false);*/
+}
+
+void CWebviewContainer::onPageUrlChangedMac(const QString &strUrl)
+{
+    qDebug() << "webviewcontainer[url_change]: " << strUrl;
+    m_urlString = strUrl;
+    m_loadTimer.stop();
+    //onLoadFinished(true);
 }
