@@ -29,7 +29,7 @@ void CFlickrShareObject::refreshAlbumList()
 
 		if (pTempReply)
 		{
-			pTempReply->setParent(&networkAccessManager());
+			pTempReply->setParent(this);
             START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
             //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
 			//replyTempObjectManager().addTempReply(pTempReply);
@@ -90,7 +90,7 @@ void CFlickrShareObject::onReplayFinishedUpload()
 		else
 		{
 			qWarning() << all;
-			emit shareFinished(false, tr("Return error from Flickr!", "ShareLib"));
+			emit shareFinished(false, tr("Error return from Flickr!", "ShareLib"));
 		}
 	}
 	else
@@ -199,7 +199,7 @@ bool CFlickrShareObject::shareToFlickr(const QString& strTitle, const QString& s
 
 		if (pTempReply)
 		{
-			pTempReply->setParent(&networkAccessManager());
+			pTempReply->setParent(this);
             START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
             //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
 			//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
@@ -300,7 +300,7 @@ void CFlickrShareObject::startUploadPhotoToAlbum()
 
 	if (pTempReply)
 	{
-		pTempReply->setParent(&networkAccessManager());
+		pTempReply->setParent(this);
         //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
         START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
@@ -336,7 +336,7 @@ void CFlickrShareObject::onReplayFinishedTransform()
 		else
 		{
 			qWarning() << all;
-			emit shareFinished(false, tr("Return error from Flickr!", "ShareLib"));
+			emit shareFinished(false, tr("Error return from Flickr!", "ShareLib"));
 		}
 	}
 	else

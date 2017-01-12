@@ -33,7 +33,7 @@ void CFaceBookAuthorizeWebview::onPageLoadFinished(ShareLibrary::EPageLoadResult
 	{
 		const QString strUrl = urlString();
 
-		qDebug() << "Facebook page load: " << strUrl;
+		//qDebug() << "Facebook page load: " << strUrl;
 
 		if (!strUrl.isEmpty())
 		{

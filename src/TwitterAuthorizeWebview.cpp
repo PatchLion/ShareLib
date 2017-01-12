@@ -6,7 +6,9 @@
 #include <QtNetwork/QNetworkReply>
 #include "TwitterShare.h"
 #include <QtCore/QTimer>
+#include <QtWidgets/QDesktopWidget>
 #include "sharefunmacro.h"
+#include "TwitterPinInputDialog.h"
 #define TWITTER_REQUEST_TOKEN_URL								"https://api.twitter.com/oauth/request_token"
 #define TWITTER_AUTHORIZE_URL											"https://api.twitter.com/oauth/authorize"
 #define TWITTER_ACCESS_TOKEN_URL									"https://api.twitter.com/oauth/access_token"
@@ -16,6 +18,7 @@ CTwitterAuthorizeWebview::CTwitterAuthorizeWebview(const QString& strConsumerKey
 	, m_strConsumerKey(strConsumerKey)
 	, m_strConsumerSecret(strConsumerSecret)
 	, m_bStartToRequestAccessToken(false)
+	, m_pPinInput(0)
 {
 
 }
@@ -23,7 +26,7 @@ CTwitterAuthorizeWebview::CTwitterAuthorizeWebview(const QString& strConsumerKey
 
 CTwitterAuthorizeWebview::~CTwitterAuthorizeWebview()
 {
-
+	SAFE_DELETE(m_pPinInput);
 }
 
 
@@ -36,6 +39,7 @@ void CTwitterAuthorizeWebview::onPageLoadFinished(ShareLibrary::EPageLoadResult 
 		const QString strUrl = urlString();
 		const QString strFramePlainText = pagePlainText();
 
+		//qDebug() << strUrl;
 		if (strUrl == "https://api.twitter.com/oauth/authorize")
 		{
 			if (strFramePlainText.contains("logged-out"))
@@ -48,20 +52,35 @@ void CTwitterAuthorizeWebview::onPageLoadFinished(ShareLibrary::EPageLoadResult 
 			{
 				if (!m_bStartToRequestAccessToken)
 				{
-					m_bStartToRequestAccessToken = true;
-					qDebug() << "Twitter token page: " << strFramePlainText;
+					//qDebug() << "Twitter token page: " << strFramePlainText;
+					  
+					if (!m_pPinInput)
+					{
+						m_pPinInput = new CTwitterPinInputDialog;
+					}
 
-					QString strKey1 = "<code>";
-					QString strKey2 = "</code>";
+					QDesktopWidget* desktop = QApplication::desktop();
 
-					int nIndex1 = strFramePlainText.indexOf(strKey1);
-					int nIndex2 = strFramePlainText.indexOf(strKey2);
+					if (desktop)
+					{
+						QRect aRect = desktop->availableGeometry();
+						const int x = desktop->width() / 2 - m_pPinInput->width() / 2;
+						const int y = desktop->height() / 2 - m_pPinInput->height() / 2 + 20;
+						 
+						m_pPinInput->move(x, y);
+					}
 
-					QString pin = strFramePlainText.mid(nIndex1 + strKey1.size(), nIndex2 - nIndex1 - strKey1.size());
+					m_pPinInput->setFocus();
+					const int code = m_pPinInput->exec();
 
-					qDebug() << "Twitter pin: " << pin;
-
-					startRequestAccessToken(pin);
+					if (QDialog::Accepted == code)
+					{
+						startRequestAccessToken(m_pPinInput->pin());
+					}
+					else
+					{
+						onPageLoadFinished(ShareLibrary::Result_UserCancel);
+					}
 				}
 			}
 		}		
@@ -90,7 +109,7 @@ void CTwitterAuthorizeWebview::startRequestAccessToken(const QString& strPin)
 
 	if (pTempReply)
 	{
-		pTempReply->setParent(&networkManager());
+		pTempReply->setParent(this);
         //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
         START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		//replyTempObjectManager().addTempReply(pTempReply);
@@ -136,7 +155,7 @@ void CTwitterAuthorizeWebview::onReplayFinishedAccessToken()
 	}
 	else
 	{
-        qWarning() << "Twitter request access token error: " << rep->errorString();
+		qWarning() << "Twitter request access token error: " << rep->errorString() << " " << rep->readAll();
 
         if (QNetworkReply::OperationCanceledError == errocode)
         {
@@ -182,7 +201,7 @@ void CTwitterAuthorizeWebview::startRequestOauthToken()
 
 	if (pTempReply)
 	{
-		pTempReply->setParent(&networkManager());
+		pTempReply->setParent(this);
         START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
         //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
 		//replyTempObjectManager().addTempReply(pTempReply);

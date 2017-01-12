@@ -16,6 +16,7 @@
 #include "AuthorizeWebviewBase.h"
 
 class CWebviewContainer;
+class CTwitterPinInputDialog;
 class CTwitterAuthorizeWebview : public CAuthorizeWebviewBase
 {   
 	Q_OBJECT
@@ -85,6 +86,8 @@ private:
 
 	QString								m_strOauthTokenSecret;
 	QString								m_strOauthToken;						//
+
+	CTwitterPinInputDialog							*m_pPinInput;
 
 };
 #endif // TwitterAuthorizeWebview_h__

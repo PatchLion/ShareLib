@@ -1,21 +1,28 @@
 TEMPLATE = app
 TARGET = ShareTest
-DESTDIR = ../bin
+
+win32{
+    DESTDIR = ../bin/$(Platform)/$(Configuration)/
+    LIBS += -L../lib/$(Platform)/$(Configuration)/
+
+    QT += webkitwidgets
+}
+
+macx{
+    LIBS += -L../lib/
+    LIBS += -framework Cocoa -framework WebKit
+}
 QT += core gui script widgets network
 
-LIBS += -lShareLib -L../lib/mac
-LIBS += -framework Cocoa -framework WebKit
+LIBS += -lShareLib
 
-CONFIG += release
-INCLUDEPATH += ./GeneratedFiles . ./../Include
-DEPENDPATH += .
+UI_DIR = ../temp/GeneratedFiles
+RCC_DIR = ../temp/GeneratedFiles
+MOC_DIR = ../temp/GeneratedFiles
 
-MOC_DIR += ./GeneratedFiles
-OBJECTS_DIR += ./obj
-UI_DIR += ./GeneratedFiles
-RCC_DIR += ./GeneratedFiles
+INCLUDEPATH += ../temp/GeneratedFiles ../includes
 
-HEADERS += ./ShareTest.h
-SOURCES += ./main.cpp ./ShareTest.cpp
-FORMS += ./ShareTest.ui
-RESOURCES += ./ShareTest.qrc
+HEADERS += ./*.h
+SOURCES += ./*.cpp
+FORMS += ./*.ui
+RESOURCES += ./*.qrc

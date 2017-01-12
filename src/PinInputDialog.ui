@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PinInputDialog</class>
+ <widget class="QDialog" name="PinInputDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>378</width>
+    <height>115</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>378</width>
+    <height>115</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>378</width>
+    <height>115</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+	background-color: transparent;
+}
+QLabel
+{
+	font:13px &quot;Source Han Sans CN Light&quot;;	
+	color: rgb(199, 199, 199);
+}
+QLineEdit
+{
+	padding-left:3px;
+	padding-right:3px;
+	font: 14px &quot;Source Han Sans CN Light&quot;;
+	border-image: url(://Resources/pathEdit_bg.png);
+	color: rgb(202, 202, 202);
+}
+QDialog{
+	background-color:transparent;
+}	
+QPushButton#pushButtonCloseWin, QPushButton#pushButtonCloseMac{
+	border-image: url(://Resources/close_default.png);
+}
+QPushButton#pushButtonCloseWin:hover, QPushButton#pushButtonCloseMac:hover{
+	border-image: url(://Resources/close_hover.png);
+}
+QPushButton#pushButtonCloseWin:pressed, QPushButton#pushButtonClosMac:pressed{
+	border-image: url(://Resources/close_pressed.png);
+}
+QPushButton#pushButtonOK{
+	color: rgb(255, 255, 255);
+	border-image: url(://Resources/blue_default.png);
+}
+QPushButton#pushButtonOK:hover{
+	border-image: url(://Resources/blue_hover.png);
+}
+QPushButton#pushButtonOK:pressed{
+	border-image: url(://Resources/blue_pressed.png);
+}
+QPushButton#pushButtonOK:disabled{
+	color: rgb(180, 180, 180);
+}
+QPushButton#pushButtonCancel{
+	color: rgb(255, 255, 255);
+	border-image: url(://Resources/btn_default.png);
+}
+QPushButton#pushButtonCancel:hover{
+	border-image: url(://Resources/btn_hover.png);
+}
+QPushButton#pushButtonCancel:pressed{
+	border-image: url(://Resources/btn_pressed.png);
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <property name="spacing">
+    <number>2</number>
+   </property>
+   <property name="leftMargin">
+    <number>25</number>
+   </property>
+   <property name="topMargin">
+    <number>5</number>
+   </property>
+   <property name="rightMargin">
+    <number>25</number>
+   </property>
+   <property name="bottomMargin">
+    <number>15</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="pushButtonCloseMac">
+       <property name="minimumSize">
+        <size>
+         <width>15</width>
+         <height>13</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>15</width>
+         <height>13</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonCloseWin">
+       <property name="minimumSize">
+        <size>
+         <width>15</width>
+         <height>13</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>15</width>
+         <height>13</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineEditPin">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>24</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButtonCancel">
+       <property name="minimumSize">
+        <size>
+         <width>85</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>85</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonOK">
+       <property name="minimumSize">
+        <size>
+         <width>85</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>85</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>OK</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../shareimages.qrc"/>
+ </resources>
+ <connections/>
+</ui>

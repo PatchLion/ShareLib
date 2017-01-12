@@ -73,7 +73,7 @@ bool CTwitterShareObject::shareToTwitter(const QString& strDescriptionStr, const
 
 	if (pTempReply)
 	{
-		pTempReply->setParent(&networkAccessManager());
+		pTempReply->setParent(this);
         //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
         START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
@@ -108,7 +108,7 @@ void CTwitterShareObject::onReplyFinishedUpload()
 		if (all.contains("error") || all.isEmpty())
 		{
 			qWarning() << all;
-			emit shareFinished(false, tr("Return error from Twitter!", "ShareLib"));
+			emit shareFinished(false, tr("Error return from Twitter!", "ShareLib"));
 		}
 		else if (all.contains("id") && all.contains("source"))
 		{

@@ -30,7 +30,7 @@ void CFlickrAuthorizeWebview::onPageLoadFinished(ShareLibrary::EPageLoadResult e
 	{
 		const QString strUrl = urlString();
 
-		qDebug() << "Flickr page load: " << strUrl;
+		//qDebug() << "Flickr page load: " << strUrl;
 
 
 		if (strUrl == "https://www.flickr.com/services/auth/" && !m_bIsGetTokenByForbStarted)
@@ -60,7 +60,7 @@ void CFlickrAuthorizeWebview::startGetTokenByForb()
 
 	if (pTempReply)
 	{
-		pTempReply->setParent(&networkManager());
+		pTempReply->setParent(this);
         //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
         START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		//replyTempObjectManager().addTempReply(pTempReply);
@@ -197,7 +197,7 @@ void CFlickrAuthorizeWebview::startToGetFrob()
 	if (pTempReply)
 	{
         //QTimer::singleShot(DEFAULT_TIMEOUT_INTERVAL, pTempReply, SLOT(abort()));
-		pTempReply->setParent(&networkManager());
+		pTempReply->setParent(this);
         START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		//replyTempObjectManager().addTempReply(pTempReply);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedGetFrob()));

@@ -7,7 +7,6 @@
 
 #define START_REPLY_TIMER(reply, timerinterval) \
     if(reply){\
-        qDebug() << "[ShareLib] Add reply timer!";\
         QTimer *timer = new QTimer(reply);\
         timer->setInterval(timerinterval);\
         reply->setProperty("SHARELIB_REPLY_TIMER", (long long)(timer));\
@@ -17,7 +16,6 @@
 
 #define STOP_REPLY_TIMER(reply) \
     if(reply){\
-    qDebug() << "[ShareLib] Remove reply timer!";\
     QTimer* timer = (QTimer*)(reply->property("SHARELIB_REPLY_TIMER").toLongLong());\
     if(timer){\
         timer->stop();}};

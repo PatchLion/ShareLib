@@ -25,7 +25,7 @@ void CFacebookShareObject::refreshAlbumList()
 
 	if (pTempReply)
 	{
-		pTempReply->setParent(&networkAccessManager());
+		pTempReply->setParent(this);
         START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 		connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedAlbum()));
 	}
@@ -77,7 +77,7 @@ void CFacebookShareObject::onReplayFinishedUpload()
 			else if (all.contains("error") || all.isEmpty())
 			{
 				qWarning() << all;
-				emit shareFinished(false, tr("Return error from Facebook!", "ShareLib"));
+				emit shareFinished(false, tr("Error return from Facebook!", "ShareLib"));
 			}
 		}
 		else
@@ -157,7 +157,7 @@ bool CFacebookShareObject::shareToFacebook(const QString& strDescriptionStr, con
 
 		if (pTempReply)
 		{
-			pTempReply->setParent(&networkAccessManager());
+			pTempReply->setParent(this);
             START_REPLY_TIMER(pTempReply, DEFAULT_TIMEOUT_INTERVAL);
 			//replyTempObjectManager().addTempReply(pTempReply, SHARE_IMAGE_TIMEOUT);
 			connect(pTempReply, SIGNAL(finished()), this, SLOT(onReplayFinishedUpload()));

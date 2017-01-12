@@ -12,8 +12,8 @@
 #include "ShareStructDefine.h"
 #include <QtWidgets/QMessageBox>
 
-#define WAITING_IMAGE	":/Resources/images/waiting_bg.png"
-#define FAILED_IMAGE	":/Resources/images/waiting_failed.png"
+#define WAITING_IMAGE	":/images/images/waiting_bg.png"
+#define FAILED_IMAGE	":/images/images/waiting_failed.png"
 
 ShareTest::ShareTest(QWidget *parent)
 	: QWidget(parent)
@@ -25,21 +25,21 @@ ShareTest::ShareTest(QWidget *parent)
 { 
 	ui.setupUi(this);
 
-	m_pFBShare = new CFacebookShare("475058642544447",  this);
+	m_pFBShare = new CFacebookShare("xxxxxxxxxxxxxxxxxx",  this);
 	connect(m_pFBShare, &CFacebookShare::tokenReceived, this, &ShareTest::onFacebookTokenReceived);
 	connect(m_pFBShare, &CFacebookShare::shareFinished, this, &ShareTest::onFacebookShareFinished);
 	connect(m_pFBShare, &CFacebookShare::albumsInfoRefreshFinished, this, &ShareTest::onFacebookAlbumsInfoUpdate);
 	m_pFBShare->setWebViewTitle("Fotor");
 
-
-	m_pFlickrShare = new CFlickrShare("07bd5ddec780d678",  "e3be23e18e9eab250b0cc573291da226",  this);
+	 
+	m_pFlickrShare = new CFlickrShare("xxxxxxxxxxxxxxxx",  "xxxxxxxxxxxxxxxxxxxxx",  this);
 	connect(m_pFlickrShare, &CFlickrShare::tokenReceived, this, &ShareTest::onFlickrTokenReceived);
 	connect(m_pFlickrShare, &CFlickrShare::shareFinished, this, &ShareTest::onFlickrShareFinished);
 	connect(m_pFlickrShare, &CFlickrShare::albumsInfoRefreshFinished, this, &ShareTest::onFlickrAlbumsInfoUpdate);
 	m_pFlickrShare->setWebViewTitle("Fotor");
 
 
-	m_pTwitterShare = new CTwitterShare("L6Z6Aa7zcfhj7e97Fsnkg", "KSkz0ibTwgCdFM5rUCSsZynqyi1gfoVnljE7v0qxcM", this);
+	m_pTwitterShare = new CTwitterShare("xxxxxxxxxxxxxxxxx", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", this);
 	connect(m_pTwitterShare, &CTwitterShare::tokenReceived, this, &ShareTest::onTwitterTokenReceived);
 	connect(m_pTwitterShare, &CTwitterShare::shareFinished, this, &ShareTest::onTwitterShareFinished);
 	m_pTwitterShare->setWebViewTitle("Fotor");

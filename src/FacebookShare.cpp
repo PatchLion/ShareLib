@@ -166,7 +166,7 @@ void CFacebookShare::releaseWebView()
 {
 	if (m_pAuthorizeWebview)
 	{
-        qDebug() << "Release facebook authorize webview!";
+        //qDebug() << "Release facebook authorize webview!";
 		//disconnect(m_pAuthorizeWebview);
 		SAFE_DELETE_QBJECT(m_pAuthorizeWebview);
 	}

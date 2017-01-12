@@ -172,7 +172,7 @@ void CFlickrShare::releaseWebView()
 {
 	if (m_pAuthorizeWebview)
 	{
-        qDebug() << "Release flickr authorize webview!";
+        //qDebug() << "Release flickr authorize webview!";
 		//disconnect(m_pAuthorizeWebview);
 		SAFE_DELETE_QBJECT(m_pAuthorizeWebview);
 	}

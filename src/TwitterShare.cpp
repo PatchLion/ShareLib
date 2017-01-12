@@ -122,8 +122,8 @@ bool CTwitterShare::isAuthorized() const
 
 QByteArray CTwitterShare::generateAuthorizationHeader(const QUrl& url, ShareLibrary::HttpMethod method, const QString& strOauthToken, const QString& strOauthTokenSecret, const QString& strConsumerKey, const QString& strConsumerSecret)
 {
-	if (strOauthToken.isEmpty() && strOauthTokenSecret.isEmpty())
-		qDebug() << "OAuth tokens are empty!";
+    if (strOauthToken.isEmpty() && strOauthTokenSecret.isEmpty()){}
+		//qDebug() << "OAuth tokens are empty!";
 
 	QByteArray timeStamp = ShareLibrary::generateTimeStampString().toUtf8();
 	QByteArray nonce = ShareLibrary::generateNonce();
@@ -142,7 +142,7 @@ QByteArray CTwitterShare::generateAuthorizationHeader(const QUrl& url, ShareLibr
 	header += "oauth_nonce=\"" + nonce + "\",";
 	header += "oauth_version=\"1.0\"";
 
-	qDebug() << "OAuth header:" << header;
+	//qDebug() << "OAuth header:" << header;
 
 	return header;
 }
@@ -323,7 +323,7 @@ void CTwitterShare::releaseWebView()
 {
 	if (m_pAuthorizeWebview)
 	{
-        qDebug() << "Release twitter authorize webview!";
+        //qDebug() << "Release twitter authorize webview!";
 		//disconnect(m_pAuthorizeWebview);
 		SAFE_DELETE_QBJECT(m_pAuthorizeWebview);
 	}
